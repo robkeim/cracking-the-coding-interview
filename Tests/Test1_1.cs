@@ -33,8 +33,8 @@ namespace Tests
 
         private void ValidateInput(string input, bool expectedResult)
         {
-            Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUnique(string.Empty));
-            Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUniqueNoAdditionalMemory(string.Empty));
+            Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUnique(input));
+            Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input));
         }
     }
 }
