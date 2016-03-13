@@ -51,7 +51,7 @@ namespace Tests
             str2 = "abc";
             ValidateInput(str1, str2, typeof(ArgumentException));
 
-            str1 = String.Empty;
+            str1 = string.Empty;
             ValidateInput(str1, str2, typeof(ArgumentException));
         }
 

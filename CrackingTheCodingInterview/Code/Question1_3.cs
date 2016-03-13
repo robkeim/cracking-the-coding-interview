@@ -10,7 +10,6 @@ namespace Code
 
         // Space: O(N)
         // Time: O(N log N)
-
         public static bool AreStringsPermutation(string str1, string str2)
         {
             if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
