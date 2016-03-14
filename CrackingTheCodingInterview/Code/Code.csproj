@@ -46,6 +46,7 @@
     <Compile Include="Question1_1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question1_3.cs" />
+    <Compile Include="Question1_4.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
