@@ -10,27 +10,27 @@ namespace Tests
         public void BasicTest()
         {
             // No duplicates
-            ValidateInput("abc", true);
+            ValidateResult("abc", true);
 
             // Duplicates
-            ValidateInput("aba", false);
+            ValidateResult("aba", false);
         }
 
         [TestMethod]
         public void CaseSensitivityTest()
         {
             // 'A' and 'a' are considered different characters
-            ValidateInput("Aa", true);
+            ValidateResult("Aa", true);
         }
 
         [TestMethod]
         public void NullAndEmptyStringsTest()
         {
-            ValidateInput(null, true);
-            ValidateInput(string.Empty, true);
+            ValidateResult(null, true);
+            ValidateResult(string.Empty, true);
         }
 
-        private void ValidateInput(string input, bool expectedResult)
+        private void ValidateResult(string input, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUnique(input));
             Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input));
