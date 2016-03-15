@@ -15,12 +15,12 @@ namespace Code
                 throw new ArgumentNullException(nameof(matrix));
             }
 
-            if (matrix.Rank != 2 || !IsPerfectSquare(matrix.Length))
+            if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                throw new ArgumentException(nameof(matrix), "Matrix needs to be a two dimensional square");
+                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
             }
 
-            var size = (int)Math.Sqrt(matrix.Length);
+            var size = matrix.GetLength(0);
             var result = new int[size, size];
 
             for (int row = 0; row < size; row++)
@@ -43,12 +43,12 @@ namespace Code
                 throw new ArgumentNullException(nameof(matrix));
             }
             
-            if (matrix.Rank != 2 || !IsPerfectSquare(matrix.Length))
+            if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                throw new ArgumentException(nameof(matrix), "Matrix needs to be a two dimensional square");
+                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
             }
 
-            var size = (int)Math.Sqrt(matrix.Length);
+            var size = matrix.GetLength(0);
             var offset = 0;
 
             while (size > 1)
@@ -73,11 +73,6 @@ namespace Code
                 size -= 2;
                 offset++;
             }
-        }
-
-        private static bool IsPerfectSquare(int n)
-        {
-            return Math.Sqrt(n) % 1 == 0;
         }
     }
 }

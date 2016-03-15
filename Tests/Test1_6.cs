@@ -10,12 +10,6 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
-            // 01 02 03 04 05
-            // 06 07 08 09 10
-            // 11 12 13 14 15
-            // 16 17 18 19 20
-            // 21 22 23 24 25
-
             // 2x2
             var input = GenerateMatrix(1, 2, 3, 4);
             var expectedResult = GenerateMatrix(3, 1, 4, 2);
@@ -45,18 +39,28 @@ namespace Tests
             var expectedResult = GenerateMatrix(1);
             ValidateResult(input, expectedResult);
         }
-        
+
         [TestMethod]
         public void InvalidInputsTest()
         {
             // Null matrix
             TestHelpers.AssertExceptionThrown(() => { Question1_6.RotateMatrix(null); }, typeof(ArgumentNullException));
             TestHelpers.AssertExceptionThrown(() => { Question1_6.RotateMatrixInPlace(null); }, typeof(ArgumentNullException));
+
+            // Non-square matrix
+            var matrix = new[,]
+            {
+                { 1, 2, 3 },
+                { 4, 5, 6 }
+            };
+
+            TestHelpers.AssertExceptionThrown(() => { Question1_6.RotateMatrix(matrix); }, typeof(ArgumentException));
+            TestHelpers.AssertExceptionThrown(() => { Question1_6.RotateMatrixInPlace(matrix); }, typeof(ArgumentException));
         }
 
         private void ValidateResult(int[,] input, int[,] expectedResult)
         {
-            var size = (int)Math.Sqrt(input.Length);
+            var size = input.GetLength(0);
 
             var result1 = new int[size, size];
             var result2 = new int[size, size];
@@ -83,7 +87,7 @@ namespace Tests
                 }
             }
         }
-        
+
         // Generates a two dimensional matrix from a one dimensional input
         // Example input:
         // 1 2 3 4 5 6 7 8 9
@@ -93,12 +97,7 @@ namespace Tests
         // 7 8 9
         private int[,] GenerateMatrix(params int[] list)
         {
-            if (!IsPerfectSquare(list.Length))
-            {
-                throw new ArgumentException(nameof(list), "Number of elements must be a perfect square to create an NxN matrix");
-            }
-
-            var size = (int)Math.Sqrt(list.Length);
+            var size = GetMatrixSize(list);
 
             var result = new int[size, size];
             var counter = 0;
@@ -114,9 +113,16 @@ namespace Tests
             return result;
         }
 
-        private bool IsPerfectSquare(int n)
+        private int GetMatrixSize(params int[] list)
         {
-            return Math.Sqrt(n) % 1 == 0;
+            var length = Math.Sqrt(list.Length);
+
+            if (length % 1 != 0)
+            {
+                throw new ArgumentException(nameof(list), "Number of elements must be a perfect square to create an NxN matrix");
+            }
+
+            return (int)length;
         }
     }
 }
