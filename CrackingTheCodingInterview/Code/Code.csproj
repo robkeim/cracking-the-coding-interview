@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Question1_1.cs" />
+    <Compile Include="Chapter 1\Question1_1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question1_3.cs" />
-    <Compile Include="Question1_4.cs" />
-    <Compile Include="Question1_5.cs" />
-    <Compile Include="Question1_6.cs" />
-    <Compile Include="Question1_7.cs" />
-    <Compile Include="Question1_8.cs" />
+    <Compile Include="Chapter 1\Question1_3.cs" />
+    <Compile Include="Chapter 1\Question1_4.cs" />
+    <Compile Include="Chapter 1\Question1_5.cs" />
+    <Compile Include="Chapter 1\Question1_6.cs" />
+    <Compile Include="Chapter 1\Question1_7.cs" />
+    <Compile Include="Chapter 1\Question1_8.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
