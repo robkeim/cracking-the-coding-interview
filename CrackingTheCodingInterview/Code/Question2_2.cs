@@ -4,6 +4,10 @@ namespace Code
 {
     public static class Question2_2
     {
+        // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
+
+        // Space: O(1)
+        // Time: O(N)
         public static Node<T> FindKthToLast<T>(Node<T> head, int k) where T : IEquatable<T>
         {
             if (head == null)
