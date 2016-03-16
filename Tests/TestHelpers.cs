@@ -52,7 +52,7 @@ namespace Tests
             return result;
         }
         
-        public static Node<T> CloneList<T>(Node<T> head) where T : class
+        public static Node<T> CloneList<T>(Node<T> head) where T : IEquatable<T>
         {
             if (head == null)
             {
@@ -73,7 +73,7 @@ namespace Tests
             return result;
         } 
 
-        public static Node<T> CreateLinkedList<T>(params T[] values) where T : class
+        public static Node<T> CreateLinkedList<T>(params T[] values) where T : IEquatable<T>
         {
             Node<T> head = new Node<T>(values[0]);
             Node<T> cur = head;
@@ -88,7 +88,7 @@ namespace Tests
             return head;
         } 
 
-        public static void ValidateLinkedListContent<T>(Node<T> head, params T[] values) where T : class
+        public static void ValidateLinkedListContent<T>(Node<T> head, params T[] values) where T : IEquatable<T>
         {
             Assert.IsNotNull(head);
 
