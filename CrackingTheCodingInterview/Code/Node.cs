@@ -1,8 +1,9 @@
-﻿using System;
+﻿using System.Diagnostics;
 
 namespace Code
 {
     // This Node implementation is directly from the book (modified as needed)
+    [DebuggerDisplay("Data = {Data}")]
     public class Node<T> where T : class
     {
         public Node(T d)
