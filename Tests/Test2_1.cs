@@ -55,8 +55,8 @@ namespace Tests
         public void InvalidInputsTest()
         {
             // Null input string
-            TestHelpers.AssertExceptionThrown(() => { Question2_1.RemoveDuplicates<string>(null); }, typeof(ArgumentNullException));
-            TestHelpers.AssertExceptionThrown(() => { Question2_1.RemoveDuplicatesNoSpace<string>(null); }, typeof(ArgumentNullException));
+            TestHelpers.AssertExceptionThrown(() => { Question2_1.RemoveDuplicates<int>(null); }, typeof(ArgumentNullException));
+            TestHelpers.AssertExceptionThrown(() => { Question2_1.RemoveDuplicatesNoSpace<int>(null); }, typeof(ArgumentNullException));
         }
 
         private void ValidateResult<T>(Node<T> input, params T[] expectedResult) where T : IEquatable<T>

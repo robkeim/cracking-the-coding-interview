@@ -52,3 +52,8 @@ Chapter 18: Hard
 2.1 Write code to remove duplicates from an unsorted linked list.  FOLLOW UP How would you solve this problem if a temporary buffer is not allowed?
 
 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
+
+2.3 Implement an algorithm to delete a node in the middle of a singly linked list, given only access to that node.
+	EXAMPLE
+	Input: the node c from the linked list a->b->c->d->e
+	Result: nothing is returned, but the new linked list looks like a->b->d->e

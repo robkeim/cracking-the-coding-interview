@@ -12,7 +12,7 @@ namespace Code
             Data = d;
         }
 
-        public T Data { get; private set; }
+        public T Data { get; set; }
 
         public Node<T> Next { get; set; }
         

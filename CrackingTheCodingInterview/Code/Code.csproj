@@ -55,6 +55,7 @@
     <Compile Include="Node.cs" />
     <Compile Include="Question2_1.cs" />
     <Compile Include="Question2_2.cs" />
+    <Compile Include="Question2_3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

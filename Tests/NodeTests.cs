@@ -12,39 +12,39 @@ namespace Tests
         public void BasicTest()
         {
             // Add an element
-            Node<string> head = new Node<string>("a");
-            TestHelpers.ValidateLinkedListContent(head, "a");
+            Node<int> head = new Node<int>(1);
+            TestHelpers.ValidateLinkedListContent(head, 1);
 
             // Add two more elements
-            head.AppendToTail("b");
-            head.AppendToTail("c");
-            TestHelpers.ValidateLinkedListContent(head, "a", "b", "c");
+            head.AppendToTail(2);
+            head.AppendToTail(3);
+            TestHelpers.ValidateLinkedListContent(head, 1, 2, 3);
 
             // Remove the middle element
-            head = head.DeleteNode(head, "b");
-            TestHelpers.ValidateLinkedListContent(head, "a", "c");
+            head = head.DeleteNode(head, 2);
+            TestHelpers.ValidateLinkedListContent(head, 1, 3);
         }
 
         [TestMethod]
         public void RemoveTests()
         {
             // Add three elements
-            Node<string> head = new Node<string>("a");
-            head.AppendToTail("b");
-            head.AppendToTail("c");
-            TestHelpers.ValidateLinkedListContent(head, "a", "b", "c");
+            Node<int> head = new Node<int>(1);
+            head.AppendToTail(2);
+            head.AppendToTail(3);
+            TestHelpers.ValidateLinkedListContent(head, 1, 2, 3);
 
             // Remove the middle one
-            head = head.DeleteNode(head, "b");
-            TestHelpers.ValidateLinkedListContent(head, "a", "c");
+            head = head.DeleteNode(head, 2);
+            TestHelpers.ValidateLinkedListContent(head, 1, 3);
 
             // Remove the first one
-            head = head.DeleteNode(head, "a");
-            TestHelpers.ValidateLinkedListContent(head, "c");
+            head = head.DeleteNode(head, 1);
+            TestHelpers.ValidateLinkedListContent(head, 3);
 
             // Remove non-existent head
-            head = head.DeleteNode(head, "d");
-            TestHelpers.ValidateLinkedListContent(head, "c");
+            head = head.DeleteNode(head, 4);
+            TestHelpers.ValidateLinkedListContent(head, 3);
         }
     }
 }
