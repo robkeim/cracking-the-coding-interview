@@ -10,6 +10,10 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
+            // Test case given in the problem
+            var demoList = TestHelpers.CreateLinkedList('a', 'b', 'c', 'd', 'e');
+            ValidateResult(demoList, demoList.Next.Next, 'a', 'b', 'd', 'e');
+
             // Remove first node
             var list = TestHelpers.CreateLinkedList(1, 2, 3);
             ValidateResult(list, list, 2, 3);
