@@ -70,6 +70,7 @@
     <Compile Include="Test2_1.cs" />
     <Compile Include="Test2_2.cs" />
     <Compile Include="Test2_3.cs" />
+    <Compile Include="TestMeetingScheduler.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrackingTheCodingInterview\Code\Code.csproj">
