@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class TestMeetingScheduler
+    public class MeetingSchedulerTests
     {
         [TestMethod]
         public void SampleTest()
