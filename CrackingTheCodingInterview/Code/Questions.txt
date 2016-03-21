@@ -69,4 +69,5 @@ TOOD rkeim
 	Input: the node c from the linked list a->b->c->d->e
 	Result: nothing is returned, but the new linked list looks like a->b->d->e
 
+TODO rkeim
 2.4 Partition: Write code to parition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x.
