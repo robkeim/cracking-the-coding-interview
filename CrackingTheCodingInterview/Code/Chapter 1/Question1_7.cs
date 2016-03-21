@@ -4,110 +4,74 @@ namespace Code
 {
     public static class Question1_7
     {
-        // 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
+        // 1.7 Rotate Matrix: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 
-        // Space: O(N + M)
-        // Time: O(N * M)
-        public static void ZeroMatrix(int[,] matrix)
+        // Space: O(N^2)
+        // Time: O(N^2)
+        public static int[,] RotateMatrix(int[,] matrix)
         {
             if (matrix == null)
             {
                 throw new ArgumentNullException(nameof(matrix));
             }
 
-            var rowLength = matrix.GetLength(0);
-            var colLength = matrix.GetLength(1);
-
-            var zerosInRow = new bool[rowLength];
-            var zerosInCol = new bool[colLength];
-
-            for (int i = 0; i < rowLength; i++)
+            if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                for (int j = 0; j < colLength; j++)
+                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
+            }
+
+            var size = matrix.GetLength(0);
+            var result = new int[size, size];
+
+            for (int row = 0; row < size; row++)
+            {
+                for (int col = 0; col < size; col++)
                 {
-                    zerosInRow[i] |= matrix[i, j] == 0;
-                    zerosInCol[j] |= matrix[i, j] == 0;
+                    result[col, size - 1 - row] = matrix[row, col];
                 }
             }
 
-            for (int i = 0; i < rowLength; i++)
-            {
-                for (int j = 0; j < colLength; j++)
-                {
-                    if (zerosInRow[i] || zerosInCol[j])
-                    {
-                        matrix[i, j] = 0;
-                    }
-                }
-            }
+            return result;
         }
 
         // Space: O(1)
-        // Time: O(N * M)
-        public static void ZeroMatrixNoAdditionalSpace(int[,] matrix)
+        // Time: O(N^2)
+        public static void RotateMatrixInPlace(int[,] matrix)
         {
-            // Find out if there's a zero in the first row/column
-            // Use the first row/column to store the values instead of the additional arrays created above
-            // Zero the matrix where needed
             if (matrix == null)
             {
                 throw new ArgumentNullException(nameof(matrix));
             }
-
-            var rowLength = matrix.GetLength(0);
-            var colLength = matrix.GetLength(1);
-
-            bool zeroInFirstRow = false;
-
-            for (int i = 0; i < colLength; i++)
+            
+            if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                zeroInFirstRow |= matrix[0, i] == 0;
+                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
             }
 
-            bool zeroInFirstCol = false;
+            var size = matrix.GetLength(0);
+            var offset = 0;
 
-            for (int i = 0; i < rowLength; i++)
+            while (size > 1)
             {
-                zeroInFirstCol |= matrix[i, 0] == 0;
-            }
-
-            for (int i = 0; i < rowLength; i++)
-            {
-                for (int j = 0; j < colLength; j++)
+                for (int i = 0; i < size - 1; i++)
                 {
-                    if (matrix[i, j] == 0)
-                    {
-                        matrix[i, 0] = 0;
-                        matrix[0, j] = 0;
-                    }
-                }
-            }
+                    var orig = matrix[offset, i + offset];
 
-            for (int i = 1; i < rowLength; i++)
-            {
-                for (int j = 1; j < colLength; j++)
-                {
-                    if (matrix[i, 0] == 0 || matrix[0, j] == 0)
-                    {
-                        matrix[i, j] = 0;
-                    }
-                }
-            }
+                    // Top left
+                    matrix[offset, i + offset] = matrix[size - 1 - i + offset, offset];
 
-            if (zeroInFirstRow)
-            {
-                for (int i = 0; i < colLength; i++)
-                {
-                    matrix[0, i] = 0;
-                }
-            }
+                    // Bottom left
+                    matrix[size - 1 - i + offset, offset] = matrix[size - 1 + offset, size - 1 - i + offset];
 
-            if (zeroInFirstCol)
-            {
-                for (int i = 0; i < rowLength; i++)
-                {
-                    matrix[i, 0] = 0;
+                    // Bottom right
+                    matrix[size - 1 + offset, size - 1 - i + offset] = matrix[i + offset, size - 1 + offset];
+
+                    // Top right
+                    matrix[i + offset, size - 1 + offset] = orig;
                 }
+
+                size -= 2;
+                offset++;
             }
         }
     }

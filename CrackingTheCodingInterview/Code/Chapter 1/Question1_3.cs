@@ -1,81 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Code
 {
     public static class Question1_3
     {
-        // 1.3 Given two strings, write a method to decide if one is a permutation of the other
+        // 1.3 URLify: Write a method to replace all spaces in a string with '%20'.  You may assume that the string has sufficient space at the end of the string to hold the additional characters, and that you are given the "true" length of the string. (Note: if implementing in java, please use a character array so that you can perform this operation in place.)
+        // EXAMPLE
+        // Input:  "Mr John Smith    "
+        // Output: "Mr%20John%20Smith"
 
-        // Space: O(N)
-        // Time: O(N log N)
-        public static bool AreStringsPermutation(string str1, string str2)
-        {
-            if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
-            {
-                throw new ArgumentException("Input strings cannot be null or empty");
-            }
-
-            if (str1.Length != str2.Length)
-            {
-                return false;
-            }
-
-            var sortedStr1 = string.Concat(str1.OrderBy(c => c));
-            var sortedStr2 = string.Concat(str2.OrderBy(c => c));
-
-            return sortedStr1.Equals(sortedStr2);
-        }
-
-        // Space: O(N)
+        // Space: O(1)
         // Time: O(N)
-        public static bool AreStringsPermutationNoSort(string str1, string str2)
+        public static void ReplaceSpaces(char[] str, int length)
         {
-            if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
+            if (length < 0)
             {
-                throw new ArgumentException("Input strings cannot be null or empty");
+                throw new ArgumentOutOfRangeException(nameof(length), "Value cannot be negative");
             }
 
-            if (str1.Length != str2.Length)
+            if (str == null)
             {
-                return false;
+                throw new ArgumentNullException(nameof(str), "Value cannot be null");
             }
 
-            var allChars = new Dictionary<char, int>();
+            int numSpaces = 0;
 
-            for (int i = 0; i < str1.Length; i++)
+            for (int i = 0; i < length; i++)
             {
-                var c = str1[i];
-                if (allChars.ContainsKey(c))
+                if (str[i] == ' ')
                 {
-                    allChars[c]++;
+                    numSpaces++;
+                }
+            }
+
+            int offset = 2 * numSpaces;
+
+            for (int i = length - 1; i >= 0; i--)
+            {
+                if (str[i] == ' ')
+                {
+                    str[i + offset] = '0';
+                    str[i + offset - 1] = '2';
+                    str[i + offset - 2] = '%';
+                    offset -= 2;
                 }
                 else
                 {
-                    allChars[c] = 1;
+                    str[i + offset] = str[i];
                 }
             }
-
-            for (int i = 0; i < str2.Length; i++)
-            {
-                var c = str2[i];
-                int occurences = 0;
-                if (!allChars.ContainsKey(c))
-                {
-                    return false;
-                }
-                else if (occurences == 1)
-                {
-                    allChars.Remove(c);
-                }
-                else
-                {
-                    allChars[c]--;
-                }
-            }
-
-            return true;
         }
     }
 }

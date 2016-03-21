@@ -10,61 +10,54 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
-            // Permutations
-            ValidateResult("abc", "abc", true);
-            ValidateResult("abc", "bca", true);
-
-            // Not permutations
-            ValidateResult("abc", "abca", false);
-            ValidateResult("abc", "xyz", false);
+            // Sample case given in the problem
+            ValideResult("Mr John Smith    ", "Mr%20John%20Smith");
         }
 
         [TestMethod]
-        public void CaseSensitivityTest()
+        public void EdgeCasesTest()
         {
-            // 'A' and 'a' are considered different characters
-            ValidateResult("A", "a", false);
-        }
+            // No spaces
+            ValideResult("abc", "abc");
 
-        [TestMethod]
-        public void NullAndEmptyStringsTest()
-        {
-            // Null
-            string str1 = null;
-            string str2 = null;
-            ValidateResult(str1, str2, typeof(ArgumentException));
-            
+            // First letter is a space
+            ValideResult(" abc  ", "%20abc");
+
+            // Last letter is a space
+            ValideResult("abc   ", "abc%20", 4);
+
             // Empty string
-            str1 = string.Empty;
-            str2 = string.Empty;
-            ValidateResult(str1, str2, typeof(ArgumentException));
-
-            // One one argument invalid
-            str1 = "abc";
-            str2 = null;
-            ValidateResult(str1, str2, typeof(ArgumentException));
-
-            str2 = string.Empty;
-            ValidateResult(str1, str2, typeof(ArgumentException));
-
-            str1 = null;
-            str2 = "abc";
-            ValidateResult(str1, str2, typeof(ArgumentException));
-
-            str1 = string.Empty;
-            ValidateResult(str1, str2, typeof(ArgumentException));
+            ValideResult(string.Empty, string.Empty);
         }
 
-        private void ValidateResult(string str1, string str2, bool expectedResult)
+        [TestMethod]
+        public void InvalidInputsTest()
         {
-            Assert.AreEqual(expectedResult, Question1_3.AreStringsPermutation(str1, str2));
-            Assert.AreEqual(expectedResult, Question1_3.AreStringsPermutationNoSort(str1, str2));
+            // Invalid length
+            var str = "foo".ToCharArray();
+            TestHelpers.AssertExceptionThrown(() => { Question1_3.ReplaceSpaces(str, -1); }, typeof(ArgumentOutOfRangeException));
+
+            // Null input string
+            str = null;
+            TestHelpers.AssertExceptionThrown(() => { Question1_3.ReplaceSpaces(str, 0); }, typeof(ArgumentNullException));
         }
 
-        private void ValidateResult(string str1, string str2, Type expectedException)
+        private static void ValideResult(string input, string expectedResult, int? inputLength = null)
         {
-            TestHelpers.AssertExceptionThrown(() => { Question1_3.AreStringsPermutation(str1, str2); }, expectedException);
-            TestHelpers.AssertExceptionThrown(() => { Question1_3.AreStringsPermutationNoSort(str1, str2); }, expectedException);
+            if (input.Length != expectedResult.Length)
+            {
+                throw new ArgumentException("Input and expected result must be the same length");
+            }
+
+            var str = input.ToCharArray();
+            var length = inputLength ?? input.TrimEnd(" ".ToCharArray()).Length;
+
+            Question1_3.ReplaceSpaces(str, length);
+            
+            for (int i = 0; i < expectedResult.Length; i++)
+            {
+                Assert.AreEqual(expectedResult[i], str[i]);
+            }
         }
     }
 }

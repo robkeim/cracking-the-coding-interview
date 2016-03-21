@@ -1,78 +1,52 @@
 ﻿using System;
+using System.Text;
 
 namespace Code
 {
     public static class Question1_6
     {
-        // 1.6 Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
-
-        // Space: O(N^2)
-        // Time: O(N^2)
-        public static int[,] RotateMatrix(int[,] matrix)
+        // 1.6 String Compression: Implement a method to perform basic string compression using the counts of repeated characters.  For example, the string aabcccccaaa would become a2b1c5a3.  If the "compressed" string would not become smaller than the original string, your method should return the original string.
+        // Space: O(N)
+        // Time: O(N)
+        public static string Compress(string str)
         {
-            if (matrix == null)
+            if (string.IsNullOrEmpty(str))
             {
-                throw new ArgumentNullException(nameof(matrix));
+                throw new ArgumentException(nameof(str), "Input cannot be null or empty");
             }
 
-            if (matrix.GetLength(0) != matrix.GetLength(1))
+            if (str.Length == 1)
             {
-                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
+                return str;
             }
 
-            var size = matrix.GetLength(0);
-            var result = new int[size, size];
+            var curChar = str[0];
+            var curCount = 1;
+            var result = new StringBuilder();
 
-            for (int row = 0; row < size; row++)
+            for (int i = 1; i < str.Length; i++)
             {
-                for (int col = 0; col < size; col++)
+                if (curChar == str[i])
                 {
-                    result[col, size - 1 - row] = matrix[row, col];
+                    curCount++;
+                }
+                else
+                {
+                    result.Append(curChar);
+                    result.Append(curCount);
+                    curChar = str[i];
+                    curCount = 1;
                 }
             }
 
-            return result;
-        }
+            result.Append(curChar);
+            result.Append(curCount);
 
-        // Space: O(1)
-        // Time: O(N^2)
-        public static void RotateMatrixInPlace(int[,] matrix)
-        {
-            if (matrix == null)
-            {
-                throw new ArgumentNullException(nameof(matrix));
-            }
-            
-            if (matrix.GetLength(0) != matrix.GetLength(1))
-            {
-                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
-            }
+            var resultString = result.ToString();
 
-            var size = matrix.GetLength(0);
-            var offset = 0;
-
-            while (size > 1)
-            {
-                for (int i = 0; i < size - 1; i++)
-                {
-                    var orig = matrix[offset, i + offset];
-
-                    // Top left
-                    matrix[offset, i + offset] = matrix[size - 1 - i + offset, offset];
-
-                    // Bottom left
-                    matrix[size - 1 - i + offset, offset] = matrix[size - 1 + offset, size - 1 - i + offset];
-
-                    // Bottom right
-                    matrix[size - 1 + offset, size - 1 - i + offset] = matrix[i + offset, size - 1 + offset];
-
-                    // Top right
-                    matrix[i + offset, size - 1 + offset] = orig;
-                }
-
-                size -= 2;
-                offset++;
-            }
+            return resultString.Length < str.Length
+                ? resultString
+                : str;
         }
     }
 }

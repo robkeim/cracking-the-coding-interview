@@ -4,7 +4,7 @@ namespace Code
 {
     public static class Question2_2
     {
-        // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
+        // 2.2 Return Kth to Last: Implement an algorithm to find the kth to last element of a singly linked list.
 
         // Space: O(1)
         // Time: O(N)

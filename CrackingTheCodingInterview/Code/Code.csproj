@@ -49,16 +49,17 @@
     <Compile Include="MeetingScheduler\MeetingScheduler.cs" />
     <Compile Include="MeetingScheduler\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Chapter 1\Question1_2.cs" />
     <Compile Include="Chapter 1\Question1_3.cs" />
-    <Compile Include="Chapter 1\Question1_4.cs" />
-    <Compile Include="Chapter 1\Question1_5.cs" />
     <Compile Include="Chapter 1\Question1_6.cs" />
     <Compile Include="Chapter 1\Question1_7.cs" />
     <Compile Include="Chapter 1\Question1_8.cs" />
+    <Compile Include="Chapter 1\Question1_9.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Question2_1.cs" />
     <Compile Include="Question2_2.cs" />
     <Compile Include="Question2_3.cs" />
+    <Compile Include="Question2_4.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

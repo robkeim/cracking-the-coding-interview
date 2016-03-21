@@ -10,40 +10,121 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
-            // Sample given in problem
-            ValidateResult("waterbottle", "erbottlewat", true);
+            // All ones
+            // 1 1 1    1 1 1
+            // 1 1 1 -> 1 1 1
+            // 1 1 1    1 1 1
+            var input = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 1, 1, 1, 1, 1);
+            var expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 1, 1, 1, 1, 1);
+            ValidateResult(input, expectedResult);
 
-            // Different length input
-            ValidateResult("abc", "abcd", false);
+            // All zeros
+            // 0 0 0    0 0 0
+            // 0 0 0 -> 0 0 0
+            // 0 0 0    0 0 0
+            input = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            ValidateResult(input, expectedResult);
+
+            // Forward slash
+            // 1 1 0    0 0 0
+            // 1 0 1 -> 0 0 0
+            // 0 1 1    0 0 0
+            input = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 0, 1, 0, 1, 0, 1, 1);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            ValidateResult(input, expectedResult);
+
+            // Backward slash
+            // 0 1 1    0 0 0
+            // 1 0 1 -> 0 0 0
+            // 1 1 0    0 0 0
+            input = TestHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 0, 1, 1, 1, 0);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            ValidateResult(input, expectedResult);
+
+            // One zero
+            // 0 1 1    0 0 0
+            // 1 1 1 -> 0 1 1
+            // 1 1 1    0 1 1
+            input = TestHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 1, 1, 1, 1, 1);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 1, 1, 0, 1, 1);
+            ValidateResult(input, expectedResult);
+
+            // Corners
+            // 0 1 1    0 0 0
+            // 1 1 1 -> 0 1 0
+            // 1 1 0    0 0 0
+            input = TestHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 1, 1, 1, 1, 0);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 1, 0, 0, 0, 0);
+            ValidateResult(input, expectedResult);
+
+            // Center
+            // 1 1 1    1 0 1
+            // 1 0 1 -> 0 0 0
+            // 1 1 1    1 0 1
+            input = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 0, 1, 1, 1, 1);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1, 0, 1, 0, 0, 0, 1, 0, 1);
+            ValidateResult(input, expectedResult);
+
+            // Random
+            // 1 0 1    0 0 0
+            // 1 1 1 -> 1 0 1
+            // 1 1 1    1 0 1
+            input = TestHelpers.CreateTwoDimensionalMatrix(1, 0, 1, 1, 1, 1, 1, 1, 1);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 1, 0, 1, 1, 0, 1);
+            ValidateResult(input, expectedResult);
         }
 
         [TestMethod]
         public void EdgeCaseTest()
         {
-            // Same string two times
-            ValidateResult("abc", "abc", true);
+            // 1x1 with 0
+            var input = TestHelpers.CreateTwoDimensionalMatrix(0);
+            var expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0);
+            ValidateResult(input, expectedResult);
 
-            // Case differences
-            ValidateResult("abc", "ABC", false);
+            // 1x1 with 1
+            input = TestHelpers.CreateTwoDimensionalMatrix(1);
+            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1);
+            ValidateResult(input, expectedResult);
         }
 
         [TestMethod]
-        public void InvalidInputTest()
+        public void InvalidInputsTest()
         {
-            // Null input
-            TestHelpers.AssertExceptionThrown(() => { Question1_8.IsRotation("abc", null); }, typeof(ArgumentException));
-            TestHelpers.AssertExceptionThrown(() => { Question1_8.IsRotation(null, "abc"); }, typeof(ArgumentException));
-            TestHelpers.AssertExceptionThrown(() => { Question1_8.IsRotation(null, null); }, typeof(ArgumentException));
-
-            // Empty input
-            TestHelpers.AssertExceptionThrown(() => { Question1_8.IsRotation("abc", string.Empty); }, typeof(ArgumentException));
-            TestHelpers.AssertExceptionThrown(() => { Question1_8.IsRotation(string.Empty, "abc"); }, typeof(ArgumentException));
-            TestHelpers.AssertExceptionThrown(() => { Question1_8.IsRotation(string.Empty, string.Empty); }, typeof(ArgumentException));
+            // Null matrix
+            TestHelpers.AssertExceptionThrown(() => { Question1_8.ZeroMatrix(null); }, typeof(ArgumentNullException));
+            TestHelpers.AssertExceptionThrown(() => { Question1_8.ZeroMatrixNoAdditionalSpace(null); }, typeof(ArgumentNullException));
         }
 
-        private void ValidateResult(string s1, string s2, bool expectedResult)
+        private void ValidateResult(int[,] input, int[,] expectedResult)
         {
-            Assert.AreEqual(expectedResult, Question1_8.IsRotation(s1, s2));
+            var size = input.GetLength(0);
+
+            var result1 = new int[size, size];
+            var result2 = new int[size, size];
+
+            // Perform deep-copies of the original array
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    result1[i, j] = input[i, j];
+                    result2[i, j] = input[i, j];
+                }
+            }
+
+            Question1_8.ZeroMatrix(result1);
+            Question1_8.ZeroMatrixNoAdditionalSpace(result2);
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    Assert.AreEqual(expectedResult[i, j], result1[i, j]);
+                    Assert.AreEqual(expectedResult[i, j], result2[i, j]);
+                }
+            }
         }
     }
 }
