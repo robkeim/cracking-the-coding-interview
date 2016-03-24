@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chapter 1\Question1_1.cs" />
+    <Compile Include="Chapter 1\Question1_5.cs" />
     <Compile Include="MeetingScheduler\Meeting.cs" />
     <Compile Include="MeetingScheduler\MeetingScheduler.cs" />
     <Compile Include="MeetingScheduler\Person.cs" />
