@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Code
 {
     // You have n people and each has meetings booked in their calendars. The goal is to determine when all n people can meet. Assume the question is for a limited interval, like the work day.  Write unit tests for your implementation.
-    
+
     // Work day: (8, 17)
     // Person1: (8,10), (10, 12), (15,16)
     // Person2: (11, 14)

@@ -42,7 +42,7 @@ namespace Code
             {
                 throw new ArgumentNullException(nameof(matrix));
             }
-            
+
             if (matrix.GetLength(0) != matrix.GetLength(1))
             {
                 throw new ArgumentException(nameof(matrix), "Matrix needs to be square");

@@ -33,7 +33,7 @@ namespace Tests
             string str1 = null;
             string str2 = null;
             ValidateResult(str1, str2, typeof(ArgumentException));
-            
+
             // Empty string
             str1 = string.Empty;
             str2 = string.Empty;

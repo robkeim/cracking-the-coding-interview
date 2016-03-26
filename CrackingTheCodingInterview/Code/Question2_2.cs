@@ -8,7 +8,8 @@ namespace Code
 
         // Space: O(1)
         // Time: O(N)
-        public static Node<T> FindKthToLast<T>(Node<T> head, int k) where T : IEquatable<T>
+        public static Node<T> FindKthToLast<T>(Node<T> head, int k)
+            where T : IEquatable<T>
         {
             if (head == null)
             {

@@ -35,7 +35,7 @@ namespace Tests
         public void InvalidInputTest()
         {
             var node = new Node<Digit>(new Digit(0));
-            
+
             // Null node
             TestHelpers.AssertExceptionThrown(() => { Question2_5.Add(node, null); }, typeof(ArgumentNullException));
             TestHelpers.AssertExceptionThrown(() => { Question2_5.Add(null, node); }, typeof(ArgumentNullException));
@@ -79,7 +79,7 @@ namespace Tests
         {
             var result = CreateList(num, reversed);
             return TestHelpers.CreateLinkedList(result.Select(item => new Digit(item)).ToArray());
-        } 
+        }
 
         private List<int> CreateList(int num, bool reversed = false)
         {

@@ -49,7 +49,7 @@ namespace Code
             bool foundMissing = false;
             int shortIndex = 0;
             int longIndex = 0;
-            
+
             while (shortIndex < shortStr.Length)
             {
                 if (shortStr[shortIndex] != longStr[longIndex])

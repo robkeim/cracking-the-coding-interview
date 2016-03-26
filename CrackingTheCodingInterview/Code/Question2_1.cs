@@ -9,7 +9,8 @@ namespace Code
 
         // Space: O(N)
         // Time: O(N)
-        public static void RemoveDuplicates<T>(Node<T> head) where T : IEquatable<T>
+        public static void RemoveDuplicates<T>(Node<T> head)
+            where T : IEquatable<T>
         {
             if (head == null)
             {
@@ -34,7 +35,8 @@ namespace Code
 
         // Space: O(1)
         // Time: O(N^2)
-        public static void RemoveDuplicatesNoSpace<T>(Node<T> head) where T : IEquatable<T>
+        public static void RemoveDuplicatesNoSpace<T>(Node<T> head)
+            where T : IEquatable<T>
         {
             if (head == null)
             {

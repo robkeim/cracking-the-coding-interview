@@ -53,7 +53,7 @@ namespace Tests
             var length = inputLength ?? input.TrimEnd(" ".ToCharArray()).Length;
 
             Question1_3.ReplaceSpaces(str, length);
-            
+
             for (int i = 0; i < expectedResult.Length; i++)
             {
                 Assert.AreEqual(expectedResult[i], str[i]);

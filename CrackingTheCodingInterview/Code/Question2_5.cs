@@ -30,7 +30,7 @@ namespace Code
             while (num1 != null || num2 != null || carryOver)
             {
                 int value = (num1?.Data ?? 0) + (num2?.Data ?? 0) + (carryOver ? 1 : 0);
-                
+
                 if (value >= 10)
                 {
                     carryOver = true;
@@ -70,7 +70,8 @@ namespace Code
             return ReverseList(result);
         }
 
-        private static Node<T> ReverseList<T>(Node<T> head) where T : IEquatable<T>
+        private static Node<T> ReverseList<T>(Node<T> head)
+            where T : IEquatable<T>
         {
             if (head == null)
             {

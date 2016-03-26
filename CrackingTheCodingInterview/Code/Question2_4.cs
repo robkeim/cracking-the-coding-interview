@@ -9,7 +9,8 @@ namespace Code
         // Space: O(1)
         // Time: O(N)
         // This solution is stable meaning that items less than and greater than/equal to x keep their relative order
-        public static Node<T> PartitionList<T>(Node<T> head, T x) where T : IEquatable<T>, IComparable<T>
+        public static Node<T> PartitionList<T>(Node<T> head, T x)
+            where T : IEquatable<T>, IComparable<T>
         {
             if (head == null)
             {

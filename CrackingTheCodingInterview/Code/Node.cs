@@ -5,7 +5,8 @@ namespace Code
 {
     // This Node implementation is directly from the book (modified as needed)
     [DebuggerDisplay("Data = {Data}")]
-    public class Node<T> where T : IEquatable<T>
+    public class Node<T>
+        where T : IEquatable<T>
     {
         public Node(T d)
         {
@@ -15,7 +16,7 @@ namespace Code
         public T Data { get; set; }
 
         public Node<T> Next { get; set; }
-        
+
         public void AppendToTail(T d)
         {
             Node<T> end = new Node<T>(d);
@@ -50,6 +51,6 @@ namespace Code
             }
 
             return head;
-        } 
+        }
     }
 }

@@ -60,7 +60,7 @@ namespace Code
             var inputArray = input.ToCharArray();
 
             Array.Sort(inputArray);
-            
+
             char prevChar = inputArray[0];
             var count = 0;
             bool hasOdd = false;

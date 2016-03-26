@@ -25,7 +25,7 @@ namespace Code
 
         public override bool Equals(object obj)
         {
-            return this.Equals(obj as Digit);
+            return Equals(obj as Digit);
         }
 
         public override int GetHashCode()

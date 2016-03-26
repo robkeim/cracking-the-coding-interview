@@ -12,7 +12,7 @@ namespace Tests
         public void BasicTest()
         {
             const int NumElements = 5;
-            
+
             var list = TestHelpers.CreateLinkedList(Enumerable.Range(0, NumElements).Reverse().ToArray());
 
             for (int i = 0; i < NumElements; i++)
@@ -21,7 +21,7 @@ namespace Tests
                 var result = Question2_2.FindKthToLast(input, i);
 
                 Assert.AreEqual(i, result.Data);
-            }           
+            }
         }
 
         [TestMethod]

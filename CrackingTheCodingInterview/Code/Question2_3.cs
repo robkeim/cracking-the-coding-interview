@@ -12,7 +12,8 @@ namespace Code
         // Space: O(1)
         // Time: O(1)
         // NOTE: this algorithm will not work if the element to be removed is the last one in the list
-        public static void RemoveNode<T>(Node<T> node) where T : IEquatable<T>
+        public static void RemoveNode<T>(Node<T> node)
+            where T : IEquatable<T>
         {
             if (node == null || node.Next == null)
             {
