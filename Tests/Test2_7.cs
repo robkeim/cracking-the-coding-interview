@@ -36,6 +36,11 @@ namespace Tests
             intersection = TestHelpers.CreateLinkedList(2);
             AddIntersection(list1, list2, intersection);
             Validate(list1, list2, intersection);
+
+            // No intersection
+            list1 = TestHelpers.CreateLinkedList(1, 2, 3);
+            list2 = TestHelpers.CreateLinkedList(4, 5, 6);
+            Validate(list1, list2, null);
         }
 
         [TestMethod]
@@ -51,21 +56,6 @@ namespace Tests
         private static void AddIntersection<T>(Node<T> list1, Node<T> list2, Node<T> intersection)
             where T : IEquatable<T>
         {
-            if (list1 == null)
-            {
-                throw new ArgumentNullException(nameof(list1));
-            }
-
-            if (list2 == null)
-            {
-                throw new ArgumentNullException(nameof(list2));
-            }
-
-            if (intersection == null)
-            {
-                throw new ArgumentNullException(nameof(intersection));
-            }
-
             while (list1.Next != null)
             {
                 list1 = list1.Next;
@@ -84,16 +74,6 @@ namespace Tests
         private static void Validate<T>(Node<T> list1, Node<T> list2, Node<T> intersection)
             where T : IEquatable<T>
         {
-            if (list1 == null)
-            {
-                throw new ArgumentNullException(nameof(list1));
-            }
-
-            if (list2 == null)
-            {
-                throw new ArgumentNullException(nameof(list2));
-            }
-
             Assert.IsTrue(ReferenceEquals(intersection, Question2_7.FindIntersection(list1, list2)));
         }
     }
