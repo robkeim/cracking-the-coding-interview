@@ -86,6 +86,7 @@
     <Compile Include="Chapter 2\Test2_8.cs" />
     <Compile Include="Test3_2.cs" />
     <Compile Include="Test3_3.cs" />
+    <Compile Include="Test3_4.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrackingTheCodingInterview\Code\Code.csproj">
