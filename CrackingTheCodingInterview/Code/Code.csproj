@@ -70,6 +70,7 @@
     <Compile Include="Question2_4.cs" />
     <Compile Include="Question2_5.cs" />
     <Compile Include="Question2_6.cs" />
+    <Compile Include="Question2_7.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Questions.txt" />
