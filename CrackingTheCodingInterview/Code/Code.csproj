@@ -51,7 +51,7 @@
   <ItemGroup>
     <Compile Include="Chapter 1\Question1_1.cs" />
     <Compile Include="Chapter 1\Question1_5.cs" />
-    <Compile Include="Digit.cs" />
+    <Compile Include="Data structures\Digit.cs" />
     <Compile Include="MeetingScheduler\Meeting.cs" />
     <Compile Include="MeetingScheduler\MeetingScheduler.cs" />
     <Compile Include="MeetingScheduler\Person.cs" />
@@ -62,15 +62,16 @@
     <Compile Include="Chapter 1\Question1_7.cs" />
     <Compile Include="Chapter 1\Question1_8.cs" />
     <Compile Include="Chapter 1\Question1_9.cs" />
-    <Compile Include="Node.cs" />
+    <Compile Include="Data structures\Node.cs" />
     <Compile Include="Chapter 1\Question1_4.cs" />
-    <Compile Include="Question2_1.cs" />
-    <Compile Include="Question2_2.cs" />
-    <Compile Include="Question2_3.cs" />
-    <Compile Include="Question2_4.cs" />
-    <Compile Include="Question2_5.cs" />
-    <Compile Include="Question2_6.cs" />
-    <Compile Include="Question2_7.cs" />
+    <Compile Include="Chapter 2\Question2_1.cs" />
+    <Compile Include="Chapter 2\Question2_2.cs" />
+    <Compile Include="Chapter 2\Question2_3.cs" />
+    <Compile Include="Chapter 2\Question2_4.cs" />
+    <Compile Include="Chapter 2\Question2_5.cs" />
+    <Compile Include="Chapter 2\Question2_6.cs" />
+    <Compile Include="Chapter 2\Question2_7.cs" />
+    <Compile Include="Chapter 2\Question2_8.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Questions.txt" />

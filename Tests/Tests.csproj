@@ -72,17 +72,18 @@
     <Compile Include="Chapter 1\Test1_7.cs" />
     <Compile Include="Chapter 1\Test1_8.cs" />
     <Compile Include="Chapter 1\Test1_9.cs" />
-    <Compile Include="NodeTests.cs" />
-    <Compile Include="Test2_1.cs" />
-    <Compile Include="Test2_2.cs" />
-    <Compile Include="Test2_3.cs" />
-    <Compile Include="MeetingSchedulerTests.cs" />
-    <Compile Include="Test2_4.cs" />
+    <Compile Include="Data structures\NodeTests.cs" />
+    <Compile Include="Chapter 2\Test2_1.cs" />
+    <Compile Include="Chapter 2\Test2_2.cs" />
+    <Compile Include="Chapter 2\Test2_3.cs" />
+    <Compile Include="MeetingScheduler\MeetingSchedulerTests.cs" />
+    <Compile Include="Chapter 2\Test2_4.cs" />
     <Compile Include="Chapter 1\Test1_4.cs" />
-    <Compile Include="DigitTests.cs" />
-    <Compile Include="Test2_5.cs" />
-    <Compile Include="Test2_6.cs" />
-    <Compile Include="Test2_7.cs" />
+    <Compile Include="Data structures\DigitTests.cs" />
+    <Compile Include="Chapter 2\Test2_5.cs" />
+    <Compile Include="Chapter 2\Test2_6.cs" />
+    <Compile Include="Chapter 2\Test2_7.cs" />
+    <Compile Include="Chapter 2\Test2_8.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CrackingTheCodingInterview\Code\Code.csproj">

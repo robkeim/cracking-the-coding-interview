@@ -5,6 +5,9 @@ namespace Code
     public static class Question2_7
     {
         // 2.7 Intersection: Given two (singly) linked lists, determine if the two lists intersect.  Return th eintersection node.  Node that the intersection is defined based on reference, not value.  That is if the kth node of the first linked list is exactly the same node (by reference) as the jth node of the second linked list, then they are intersecting.
+
+        // Space: O(1)
+        // Time: O(N)
         public static Node<T> FindIntersection<T>(Node<T> list1, Node<T> list2)
             where T : IEquatable<T>
         {
