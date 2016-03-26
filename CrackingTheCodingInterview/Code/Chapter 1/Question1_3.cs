@@ -11,23 +11,23 @@ namespace Code
 
         // Space: O(1)
         // Time: O(N)
-        public static void ReplaceSpaces(char[] str, int length)
+        public static void ReplaceSpaces(char[] inputString, int length)
         {
             if (length < 0)
             {
                 throw new ArgumentOutOfRangeException(nameof(length), "Value cannot be negative");
             }
 
-            if (str == null)
+            if (inputString == null)
             {
-                throw new ArgumentNullException(nameof(str), "Value cannot be null");
+                throw new ArgumentNullException(nameof(inputString), "Value cannot be null");
             }
 
             int numSpaces = 0;
 
             for (int i = 0; i < length; i++)
             {
-                if (str[i] == ' ')
+                if (inputString[i] == ' ')
                 {
                     numSpaces++;
                 }
@@ -37,16 +37,16 @@ namespace Code
 
             for (int i = length - 1; i >= 0; i--)
             {
-                if (str[i] == ' ')
+                if (inputString[i] == ' ')
                 {
-                    str[i + offset] = '0';
-                    str[i + offset - 1] = '2';
-                    str[i + offset - 2] = '%';
+                    inputString[i + offset] = '0';
+                    inputString[i + offset - 1] = '2';
+                    inputString[i + offset - 2] = '%';
                     offset -= 2;
                 }
                 else
                 {
-                    str[i + offset] = str[i];
+                    inputString[i + offset] = inputString[i];
                 }
             }
         }

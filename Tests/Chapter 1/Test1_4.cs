@@ -44,13 +44,13 @@ namespace Tests
             ValidateResult(string.Empty, typeof(ArgumentException));
         }
 
-        private void ValidateResult(string input, bool expectedResult)
+        private static void ValidateResult(string input, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_4.IsPalindromePermutation(input));
             Assert.AreEqual(expectedResult, Question1_4.IsPalindromePermutationNoAdditionalSpace(input));
         }
 
-        private void ValidateResult(string input, Type expectedException)
+        private static void ValidateResult(string input, Type expectedException)
         {
             TestHelpers.AssertExceptionThrown(() => { Question1_4.IsPalindromePermutation(input); }, expectedException);
             TestHelpers.AssertExceptionThrown(() => { Question1_4.IsPalindromePermutationNoAdditionalSpace(input); }, expectedException);

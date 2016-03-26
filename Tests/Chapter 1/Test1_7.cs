@@ -58,7 +58,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question1_7.RotateMatrixInPlace(matrix); }, typeof(ArgumentException));
         }
 
-        private void ValidateResult(int[,] input, int[,] expectedResult)
+        private static void ValidateResult(int[,] input, int[,] expectedResult)
         {
             var size = input.GetLength(0);
 

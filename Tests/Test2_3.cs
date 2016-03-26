@@ -34,7 +34,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question2_3.RemoveNode(node); }, typeof(ArgumentException));
         }
 
-        private void ValidateResult<T>(Node<T> list, Node<T> nodeToRemove, params T[] expectedResult)
+        private static void ValidateResult<T>(Node<T> list, Node<T> nodeToRemove, params T[] expectedResult)
             where T : IEquatable<T>
         {
             Question2_3.RemoveNode(nodeToRemove);

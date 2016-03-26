@@ -23,7 +23,7 @@ namespace Tests
             ValidateResults(results, 14, 15, 16, 17);
         }
 
-        private void ValidateResults(List<Meeting> meetings, params int[] expectedResults)
+        private static void ValidateResults(List<Meeting> meetings, params int[] expectedResults)
         {
             if (meetings.Count * 2 != expectedResults.Length)
             {
@@ -38,7 +38,7 @@ namespace Tests
         }
 
         // Creates a person assuming pairs of meetings (start1, end1, start2, end2...)
-        private Person CreatePerson(params int[] meetingHours)
+        private static Person CreatePerson(params int[] meetingHours)
         {
             if (meetingHours.Length % 2 != 0)
             {

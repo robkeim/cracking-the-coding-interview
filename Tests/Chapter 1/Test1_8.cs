@@ -97,7 +97,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question1_8.ZeroMatrixNoAdditionalSpace(null); }, typeof(ArgumentNullException));
         }
 
-        private void ValidateResult(int[,] input, int[,] expectedResult)
+        private static void ValidateResult(int[,] input, int[,] expectedResult)
         {
             var size = input.GetLength(0);
 

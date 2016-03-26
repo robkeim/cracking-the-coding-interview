@@ -59,7 +59,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question2_1.RemoveDuplicatesNoSpace<int>(null); }, typeof(ArgumentNullException));
         }
 
-        private void ValidateResult<T>(Node<T> input, params T[] expectedResult)
+        private static void ValidateResult<T>(Node<T> input, params T[] expectedResult)
             where T : IEquatable<T>
         {
             var input1 = TestHelpers.CloneList(input);

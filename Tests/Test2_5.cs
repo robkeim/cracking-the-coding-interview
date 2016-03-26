@@ -46,7 +46,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question2_5.AddNotReversed(null, null); }, typeof(ArgumentNullException));
         }
 
-        private void Validate(int num1, int num2, int expectedResult)
+        private static void Validate(int num1, int num2, int expectedResult)
         {
             // Reversed
             ValidateHelper(num1, num2, expectedResult);
@@ -57,7 +57,7 @@ namespace Tests
             ValidateNotReversedHelper(num2, num1, expectedResult);
         }
 
-        private void ValidateHelper(int num1, int num2, int expectedResult)
+        private static void ValidateHelper(int num1, int num2, int expectedResult)
         {
             var expectedResultArray = CreateList(expectedResult, reversed: true);
             var list1 = CreateDigitList(num1, reversed: true);
@@ -66,7 +66,7 @@ namespace Tests
             TestHelpers.ValidateLinkedListContent(result, expectedResultArray.Select(r => new Digit(r)).ToArray());
         }
 
-        private void ValidateNotReversedHelper(int num1, int num2, int expectedResult)
+        private static void ValidateNotReversedHelper(int num1, int num2, int expectedResult)
         {
             var expectedResultArray = CreateList(expectedResult);
             var list1 = CreateDigitList(num1);
@@ -75,13 +75,13 @@ namespace Tests
             TestHelpers.ValidateLinkedListContent(result, expectedResultArray.Select(r => new Digit(r)).ToArray());
         }
 
-        private Node<Digit> CreateDigitList(int num, bool reversed = false)
+        private static Node<Digit> CreateDigitList(int num, bool reversed = false)
         {
             var result = CreateList(num, reversed);
             return TestHelpers.CreateLinkedList(result.Select(item => new Digit(item)).ToArray());
         }
 
-        private List<int> CreateList(int num, bool reversed = false)
+        private static List<int> CreateList(int num, bool reversed = false)
         {
             var digits = new List<int>();
 

@@ -20,7 +20,7 @@ namespace Code
 
             if (people == null || people.Count == 0)
             {
-                throw new ArgumentException(nameof(people), "No people for this meeting");
+                throw new ArgumentException("No people for this meeting", nameof(people));
             }
 
             List<Meeting> results = new List<Meeting>();

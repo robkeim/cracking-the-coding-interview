@@ -55,13 +55,13 @@ namespace Tests
             ValidateResult(str1, str2, typeof(ArgumentException));
         }
 
-        private void ValidateResult(string str1, string str2, bool expectedResult)
+        private static void ValidateResult(string str1, string str2, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_2.AreStringsPermutation(str1, str2));
             Assert.AreEqual(expectedResult, Question1_2.AreStringsPermutationNoSort(str1, str2));
         }
 
-        private void ValidateResult(string str1, string str2, Type expectedException)
+        private static void ValidateResult(string str1, string str2, Type expectedException)
         {
             TestHelpers.AssertExceptionThrown(() => { Question1_2.AreStringsPermutation(str1, str2); }, expectedException);
             TestHelpers.AssertExceptionThrown(() => { Question1_2.AreStringsPermutationNoSort(str1, str2); }, expectedException);

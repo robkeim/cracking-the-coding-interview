@@ -18,9 +18,14 @@ namespace Code
             this.value = value;
         }
 
-        public static implicit operator int(Digit d)
+        public static implicit operator int(Digit digit)
         {
-            return d.value;
+            return digit?.value ?? 0;
+        }
+
+        public static int ToInt(Digit digit)
+        {
+            return digit;
         }
 
         public override bool Equals(object obj)

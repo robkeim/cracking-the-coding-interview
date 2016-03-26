@@ -10,43 +10,43 @@ namespace Code
 
         // Space: O(N)
         // Time: O(N log N)
-        public static bool AreStringsPermutation(string str1, string str2)
+        public static bool AreStringsPermutation(string string1, string string2)
         {
-            if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
+            if (string.IsNullOrEmpty(string1) || string.IsNullOrEmpty(string2))
             {
                 throw new ArgumentException("Input strings cannot be null or empty");
             }
 
-            if (str1.Length != str2.Length)
+            if (string1.Length != string2.Length)
             {
                 return false;
             }
 
-            var sortedStr1 = string.Concat(str1.OrderBy(c => c));
-            var sortedStr2 = string.Concat(str2.OrderBy(c => c));
+            var sortedStr1 = string.Concat(string1.OrderBy(c => c));
+            var sortedStr2 = string.Concat(string2.OrderBy(c => c));
 
             return sortedStr1.Equals(sortedStr2);
         }
 
         // Space: O(N)
         // Time: O(N)
-        public static bool AreStringsPermutationNoSort(string str1, string str2)
+        public static bool AreStringsPermutationNoSort(string string1, string string2)
         {
-            if (string.IsNullOrEmpty(str1) || string.IsNullOrEmpty(str2))
+            if (string.IsNullOrEmpty(string1) || string.IsNullOrEmpty(string2))
             {
                 throw new ArgumentException("Input strings cannot be null or empty");
             }
 
-            if (str1.Length != str2.Length)
+            if (string1.Length != string2.Length)
             {
                 return false;
             }
 
             var allChars = new Dictionary<char, int>();
 
-            for (int i = 0; i < str1.Length; i++)
+            for (int i = 0; i < string1.Length; i++)
             {
-                var c = str1[i];
+                var c = string1[i];
                 if (allChars.ContainsKey(c))
                 {
                     allChars[c]++;
@@ -57,9 +57,9 @@ namespace Code
                 }
             }
 
-            for (int i = 0; i < str2.Length; i++)
+            for (int i = 0; i < string2.Length; i++)
             {
-                var c = str2[i];
+                var c = string2[i];
                 int occurences = 0;
                 if (!allChars.ContainsKey(c))
                 {

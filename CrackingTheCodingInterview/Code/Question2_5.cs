@@ -16,20 +16,25 @@ namespace Code
 
         // Space: O(N)
         // Time: O(N)
-        public static Node<Digit> Add(Node<Digit> num1, Node<Digit> num2)
+        public static Node<Digit> Add(Node<Digit> firstNumber, Node<Digit> secondNumber)
         {
-            if (num1 == null || num2 == null)
+            if (firstNumber == null)
             {
-                throw new ArgumentNullException("Inputs must not be null");
+                throw new ArgumentNullException(nameof(firstNumber));
+            }
+
+            if (secondNumber == null)
+            {
+                throw new ArgumentNullException(nameof(secondNumber));
             }
 
             Node<Digit> result = null;
             Node<Digit> resultTail = null;
             bool carryOver = false;
 
-            while (num1 != null || num2 != null || carryOver)
+            while (firstNumber != null || secondNumber != null || carryOver)
             {
-                int value = (num1?.Data ?? 0) + (num2?.Data ?? 0) + (carryOver ? 1 : 0);
+                int value = firstNumber?.Data + secondNumber?.Data + (carryOver ? 1 : 0);
 
                 if (value >= 10)
                 {
@@ -52,8 +57,8 @@ namespace Code
                     resultTail = resultTail.Next;
                 }
 
-                num1 = num1?.Next;
-                num2 = num2?.Next;
+                firstNumber = firstNumber?.Next;
+                secondNumber = secondNumber?.Next;
             }
 
             return result;
@@ -61,12 +66,12 @@ namespace Code
 
         // Space: O(N)
         // Time: O(N)
-        public static Node<Digit> AddNotReversed(Node<Digit> num1, Node<Digit> num2)
+        public static Node<Digit> AddNotReversed(Node<Digit> firstNumber, Node<Digit> secondNumber)
         {
-            num1 = ReverseList(num1);
-            num2 = ReverseList(num2);
+            firstNumber = ReverseList(firstNumber);
+            secondNumber = ReverseList(secondNumber);
 
-            var result = Add(num1, num2);
+            var result = Add(firstNumber, secondNumber);
             return ReverseList(result);
         }
 

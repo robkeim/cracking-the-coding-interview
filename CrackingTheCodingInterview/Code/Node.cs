@@ -8,18 +8,18 @@ namespace Code
     public class Node<T>
         where T : IEquatable<T>
     {
-        public Node(T d)
+        public Node(T data)
         {
-            Data = d;
+            Data = data;
         }
 
         public T Data { get; set; }
 
         public Node<T> Next { get; set; }
 
-        public void AppendToTail(T d)
+        public void AppendToTail(T data)
         {
-            Node<T> end = new Node<T>(d);
+            Node<T> end = new Node<T>(data);
             Node<T> n = this;
 
             while (n.Next != null)
@@ -30,18 +30,23 @@ namespace Code
             n.Next = end;
         }
 
-        public Node<T> DeleteNode(Node<T> head, T d)
+        public Node<T> DeleteNode(Node<T> head, T data)
         {
+            if (head == null)
+            {
+                throw new ArgumentNullException(nameof(head));
+            }
+
             Node<T> n = head;
 
-            if (n.Data.Equals(d))
+            if (n.Data.Equals(data))
             {
                 return head.Next; // Moved head
             }
 
             while (n.Next != null)
             {
-                if (n.Next.Data.Equals(d))
+                if (n.Next.Data.Equals(data))
                 {
                     n.Next = n.Next.Next;
                     return head; // head didn't change

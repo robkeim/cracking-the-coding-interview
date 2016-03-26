@@ -46,7 +46,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question2_4.PartitionList(null, 3); }, typeof(ArgumentNullException));
         }
 
-        private void ValidateResult<T>(T x, Node<T> list, params T[] expectedResult)
+        private static void ValidateResult<T>(T x, Node<T> list, params T[] expectedResult)
             where T : IEquatable<T>, IComparable<T>
         {
             var result = Question2_4.PartitionList(list, x);

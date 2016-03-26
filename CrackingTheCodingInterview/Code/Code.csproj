@@ -34,6 +34,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworkMonikerAssemblyAttributesFileClean>False</TargetFrameworkMonikerAssemblyAttributesFileClean>
+    <TargetFrameworkMonikerAssemblyAttributesPath>$(MSBuildThisFileDirectory)AssemblyAttributes.cs</TargetFrameworkMonikerAssemblyAttributesPath>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />

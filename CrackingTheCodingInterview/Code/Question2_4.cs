@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Code
 {
@@ -9,6 +10,7 @@ namespace Code
         // Space: O(1)
         // Time: O(N)
         // This solution is stable meaning that items less than and greater than/equal to x keep their relative order
+        [SuppressMessage("Microsoft.Naming", "CA1704", Justification = "Following the question's inputs")]
         public static Node<T> PartitionList<T>(Node<T> head, T x)
             where T : IEquatable<T>, IComparable<T>
         {

@@ -17,7 +17,7 @@ namespace Code
 
             if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
+                throw new ArgumentException("Matrix needs to be square", nameof(matrix));
             }
 
             var size = matrix.GetLength(0);
@@ -45,7 +45,7 @@ namespace Code
 
             if (matrix.GetLength(0) != matrix.GetLength(1))
             {
-                throw new ArgumentException(nameof(matrix), "Matrix needs to be square");
+                throw new ArgumentException("Matrix needs to be square", nameof(matrix));
             }
 
             var size = matrix.GetLength(0);

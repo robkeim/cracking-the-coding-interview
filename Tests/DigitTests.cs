@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Code;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,13 +19,14 @@ namespace Tests
         }
 
         [TestMethod]
+        [SuppressMessage("Microsoft.Usage", "CA1806", Justification = "Test")]
         public void InvalidInputTest()
         {
             // Negative number
-            TestHelpers.AssertExceptionThrown(() => { var digit = new Digit(-1); }, typeof(ArgumentOutOfRangeException));
+            TestHelpers.AssertExceptionThrown(() => { new Digit(-1); }, typeof(ArgumentOutOfRangeException));
 
             // Multiple digit number
-            TestHelpers.AssertExceptionThrown(() => { var digit = new Digit(10); }, typeof(ArgumentOutOfRangeException));
+            TestHelpers.AssertExceptionThrown(() => { new Digit(10); }, typeof(ArgumentOutOfRangeException));
         }
     }
 }

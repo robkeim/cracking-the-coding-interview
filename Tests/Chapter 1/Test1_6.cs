@@ -37,7 +37,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question1_6.Compress(string.Empty); }, typeof(ArgumentException));
         }
 
-        private void ValidateResult(string input, string expectedResult)
+        private static void ValidateResult(string input, string expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_6.Compress(input));
         }

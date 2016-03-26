@@ -30,7 +30,7 @@ namespace Tests
             ValidateResult(string.Empty, true);
         }
 
-        private void ValidateResult(string input, bool expectedResult)
+        private static void ValidateResult(string input, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUnique(input));
             Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input));

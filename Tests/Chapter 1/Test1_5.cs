@@ -40,7 +40,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question1_5.IsOneAway("foo", string.Empty); }, typeof(ArgumentException));
         }
 
-        private void ValidateResult(string s1, string s2, bool expectedResult)
+        private static void ValidateResult(string s1, string s2, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_5.IsOneAway(s1, s2));
         }

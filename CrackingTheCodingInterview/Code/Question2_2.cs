@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Code
 {
@@ -8,6 +9,7 @@ namespace Code
 
         // Space: O(1)
         // Time: O(N)
+        [SuppressMessage("Microsoft.Naming", "CA1704", Justification = "Following the question's inputs")]
         public static Node<T> FindKthToLast<T>(Node<T> head, int k)
             where T : IEquatable<T>
         {

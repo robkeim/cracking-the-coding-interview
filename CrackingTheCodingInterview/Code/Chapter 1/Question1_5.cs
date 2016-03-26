@@ -13,16 +13,16 @@ namespace Code
 
         // Space: O(1)
         // Time: O(N)
-        public static bool IsOneAway(string s1, string s2)
+        public static bool IsOneAway(string string1, string string2)
         {
-            if (string.IsNullOrEmpty(s1) || string.IsNullOrEmpty(s2))
+            if (string.IsNullOrEmpty(string1) || string.IsNullOrEmpty(string2))
             {
                 throw new ArgumentException("Input must not be null/empty");
             }
 
-            return string.Equals(s1, s2)
-                || IsAddOrRemoveCharacter(s1, s2)
-                || IsReplaceCharacter(s1, s2);
+            return string.Equals(string1, string2)
+                || IsAddOrRemoveCharacter(string1, string2)
+                || IsReplaceCharacter(string1, string2);
         }
 
         private static bool IsAddOrRemoveCharacter(string s1, string s2)

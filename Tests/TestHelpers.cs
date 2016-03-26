@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using Code;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -8,8 +9,14 @@ namespace Tests
     {
         // This is used instead of the ExpectedException test attribute to allow testing multiple exceptions
         // in the same test
+        [SuppressMessage("Microsoft.Design", "CA1031", Justification = "Test")]
         public static void AssertExceptionThrown(Action action, Type type)
         {
+            if (action == null)
+            {
+                throw new ArgumentNullException(nameof(action));
+            }
+
             try
             {
                 action();
@@ -36,6 +43,11 @@ namespace Tests
         // 7 8 9
         public static T[,] CreateTwoDimensionalMatrix<T>(params T[] list)
         {
+            if (list == null)
+            {
+                throw new ArgumentNullException(nameof(list));
+            }
+
             var size = GetMatrixSize(list);
 
             var result = new T[size, size];
@@ -77,6 +89,11 @@ namespace Tests
         public static Node<T> CreateLinkedList<T>(params T[] values)
             where T : IEquatable<T>
         {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+
             Node<T> head = new Node<T>(values[0]);
             Node<T> cur = head;
 
@@ -93,6 +110,11 @@ namespace Tests
         public static void ValidateLinkedListContent<T>(Node<T> head, params T[] values)
             where T : IEquatable<T>
         {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+
             Assert.IsNotNull(head);
 
             var numElements = values.Length;
@@ -115,7 +137,7 @@ namespace Tests
 
             if (length % 1 != 0)
             {
-                throw new ArgumentException(nameof(list), "Number of elements must be a perfect square to create an NxN matrix");
+                throw new ArgumentException("Number of elements must be a perfect square to create an NxN matrix", nameof(list));
             }
 
             return (int)length;

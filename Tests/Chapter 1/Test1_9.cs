@@ -41,7 +41,7 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question1_9.IsRotation(string.Empty, string.Empty); }, typeof(ArgumentException));
         }
 
-        private void ValidateResult(string s1, string s2, bool expectedResult)
+        private static void ValidateResult(string s1, string s2, bool expectedResult)
         {
             Assert.AreEqual(expectedResult, Question1_9.IsRotation(s1, s2));
         }
