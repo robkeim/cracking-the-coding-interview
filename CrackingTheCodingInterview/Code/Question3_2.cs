@@ -16,7 +16,7 @@ namespace Code
         private readonly T[] stackValues;
         private readonly T[] minValues;
 
-        private int numElements;
+        private int numItems;
 
         public MinStack()
         {
@@ -26,45 +26,45 @@ namespace Code
 
         public T Pop()
         {
-            if (numElements == 0)
+            if (numItems == 0)
             {
                 throw new InvalidOperationException("Stack does not contain any elements");
             }
 
-            var result = stackValues[numElements - 1];
-            numElements--;
+            var result = stackValues[numItems - 1];
+            numItems--;
 
             return result;
         }
 
         public void Push(T item)
         {
-            if (numElements == MaxSize)
+            if (numItems == MaxSize)
             {
                 throw new InvalidOperationException("No more space in the stack");
             }
 
-            stackValues[numElements] = item;
+            stackValues[numItems] = item;
 
-            var curMin = numElements == 0
+            var curMin = numItems == 0
                 ? item
-                : minValues[numElements - 1];
+                : minValues[numItems - 1];
 
-            minValues[numElements] = item.CompareTo(curMin) < 0
+            minValues[numItems] = item.CompareTo(curMin) < 0
                 ? item
                 : curMin;
 
-            numElements++;
+            numItems++;
         }
 
         public T Min()
         {
-            if (numElements == 0)
+            if (numItems == 0)
             {
                 throw new InvalidOperationException("Stack does not contain any elements");
             }
 
-            return minValues[numElements - 1];
+            return minValues[numItems - 1];
         }
     }
 }
