@@ -25,7 +25,14 @@ namespace Tests
         }
 
         [TestMethod]
-        public void InvalidInput()
+        public void EdgeCaseTest()
+        {
+            var list = TestHelpers.CreateLinkedList(1, 2, 3);
+            Validate(list, null);
+        }
+
+        [TestMethod]
+        public void InvalidInputTest()
         {
             TestHelpers.AssertExceptionThrown(() => Question2_8.FindLoopStart<int>(null), typeof(ArgumentNullException));
         }
