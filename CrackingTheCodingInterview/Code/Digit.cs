@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Code
 {
-    public class Digit
+    [DebuggerDisplay("Value = {value}")]
+    public class Digit : IEquatable<Digit>
     {
         private readonly int value;
 
@@ -19,6 +21,21 @@ namespace Code
         public static implicit operator int(Digit d)
         {
             return d.value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this.Equals(obj as Digit);
+        }
+
+        public override int GetHashCode()
+        {
+            return value;
+        }
+
+        public bool Equals(Digit other)
+        {
+            return other != null && value == other.value;
         }
     }
 }
