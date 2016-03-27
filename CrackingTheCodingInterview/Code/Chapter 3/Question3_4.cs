@@ -5,8 +5,8 @@ using System.Diagnostics.CodeAnalysis;
 namespace Code
 {
     // 3.4 Queue via Stacks: Implement a MyQueue class which implements a queue using two stacks.
-    [SuppressMessage("Documentation Rules", "SA1649", Justification = "Aligning with question naming convention")]
-    [SuppressMessage("Microsoft.Naming", "CA1711", Justification = "Using the name from the question")]
+    [SuppressMessage("Documentation Rules", "SA1649")]
+    [SuppressMessage("Microsoft.Naming", "CA1711")]
     public class MyQueue<T>
     {
         private readonly Stack<T> stackStack;

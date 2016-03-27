@@ -9,7 +9,7 @@ namespace Code
 
         // Space: O(1)
         // Time: O(N)
-        [SuppressMessage("Microsoft.Naming", "CA1704", Justification = "Following the question's inputs")]
+        [SuppressMessage("Microsoft.Naming", "CA1704")]
         public static Node<T> FindKthToLast<T>(Node<T> head, int k)
             where T : IEquatable<T>
         {

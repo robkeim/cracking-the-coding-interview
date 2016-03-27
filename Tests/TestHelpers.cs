@@ -9,7 +9,7 @@ namespace Tests
     {
         // This is used instead of the ExpectedException test attribute to allow testing multiple exceptions
         // in the same test
-        [SuppressMessage("Microsoft.Design", "CA1031", Justification = "Test")]
+        [SuppressMessage("Microsoft.Design", "CA1031")]
         public static void AssertExceptionThrown(Action action, Type type)
         {
             if (action == null)

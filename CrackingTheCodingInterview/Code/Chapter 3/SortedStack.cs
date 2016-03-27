@@ -4,7 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Code
 {
-    [SuppressMessage("Microsoft.Naming", "CA1711", Justification = "Explicitly not inheriting from Stack")]
+    // I originally misread question 3.5 as asking to write a stack that stays sorted as you add elements not sorting an existing stack.
+    // I had finished this implementation before I realized my mistake, so I left it here.
+    [SuppressMessage("Microsoft.Naming", "CA1711")]
     public class SortedStack<T>
             where T : IComparable<T>
     {

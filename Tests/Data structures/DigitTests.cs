@@ -19,7 +19,7 @@ namespace Tests
         }
 
         [TestMethod]
-        [SuppressMessage("Microsoft.Usage", "CA1806", Justification = "Test")]
+        [SuppressMessage("Microsoft.Usage", "CA1806")]
         public void InvalidInputTest()
         {
             // Negative number

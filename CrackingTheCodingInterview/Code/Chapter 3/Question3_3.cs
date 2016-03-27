@@ -11,7 +11,7 @@ namespace Code
     // it would if there were just a single stack).
     //    FOLLOW UP
     //    Implement a function popAt(int index) which performans a pop operation on a specific sub-stack.
-    [SuppressMessage("Documentation Rules", "SA1649", Justification = "Aligning with question naming convention")]
+    [SuppressMessage("Documentation Rules", "SA1649")]
     public class SetOfStacks<T>
     {
         // Small value for testing purposes
