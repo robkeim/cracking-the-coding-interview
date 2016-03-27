@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Code
 {
-    // 3.5 Write a program to sort a stack such that the smallest items are on the top.  You can use an
+    // 3.5 Sort Stack: Write a program to sort a stack such that the smallest items are on the top.  You can use an
     // additional temporary stack, but you may not copy the elements into any other data structure (such as an array).
     // The stack supports the following operations: push, pop, peek, and isEmpty.
     public static class Question3_5

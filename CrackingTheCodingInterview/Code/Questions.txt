@@ -116,7 +116,7 @@ Chapter 17: Hard
 
 3.4 Queue via Stacks: Implement a MyQueue class which implements a queue using two stacks.
 
-3.5 Write a program to sort a stack such that the smallest items are on the top.  You can use an additional temporary stack, but you may not copy the elements
+3.5 Sort Stack: Write a program to sort a stack such that the smallest items are on the top.  You can use an additional temporary stack, but you may not copy the elements
     into any other data structure (such as an array).  The stack supports the following operations: push, pop, peek, and isEmpty.
 
 3.6 Animal Shelter: An animal shelter, which holds only dogs and cats, operates on a strictly "first in, first out" basis.  People must adopt either the "oldest"
