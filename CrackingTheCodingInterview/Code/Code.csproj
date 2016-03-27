@@ -75,6 +75,8 @@
     <Compile Include="Question3_2.cs" />
     <Compile Include="Question3_3.cs" />
     <Compile Include="Question3_4.cs" />
+    <Compile Include="Question3_5.cs" />
+    <Compile Include="SortedStack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Questions.txt" />

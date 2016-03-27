@@ -20,6 +20,7 @@ namespace Code
             queueStack = new Stack<T>();
         }
 
+        // Time: O(N) when the previous operation was a remove
         public void Add(T item)
         {
             if (isQueue)
@@ -40,6 +41,7 @@ namespace Code
             numItems++;
         }
 
+        // Time: O(N) when the previous operation was an add
         public T Remove()
         {
             if (numItems == 0)
