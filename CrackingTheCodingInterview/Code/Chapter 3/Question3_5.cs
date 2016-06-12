@@ -9,7 +9,7 @@ namespace Code
     public static class Question3_5
     {
         // Time: O(N)
-        // Space: O(1) -> no additional space besides the items in the stack
+        // Space: O(N)
         public static void SortStack<T>(Stack<T> stack)
             where T : IComparable
         {

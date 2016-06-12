@@ -25,6 +25,8 @@ namespace Code
             setOfStacks = new List<T[]>();
         }
 
+        // Space: O(N) where N is the size of a sub-stack
+        // Time: O(1)
         public void Push(T item)
         {
             if (numItems % MaxSizePerStack == 0)
@@ -41,6 +43,8 @@ namespace Code
             numItems++;
         }
 
+        // Space: O(1)
+        // Time: O(1)
         public T Pop()
         {
             if (numItems == 0)

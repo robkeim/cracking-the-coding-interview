@@ -10,12 +10,12 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
-            var list = TestHelpers.CreateLinkedList(1, 2, 3);
+            var list = ListHelpers.CreateLinkedList(1, 2, 3);
             var loopStart = AddLoop(list, 4, 5, 6);
             Validate(list, loopStart);
 
             // Loop of size one
-            list = TestHelpers.CreateLinkedList(1, 2, 3);
+            list = ListHelpers.CreateLinkedList(1, 2, 3);
             loopStart = AddLoop(list, 4);
             Validate(list, loopStart);
 
@@ -27,7 +27,7 @@ namespace Tests
         [TestMethod]
         public void EdgeCaseTest()
         {
-            var list = TestHelpers.CreateLinkedList(1, 2, 3);
+            var list = ListHelpers.CreateLinkedList(1, 2, 3);
             Validate(list, null);
         }
 
@@ -45,7 +45,7 @@ namespace Tests
                 head = head.Next;
             }
 
-            var loopStart = TestHelpers.CreateLinkedList(loop);
+            var loopStart = ListHelpers.CreateLinkedList(loop);
             var loopEnd = loopStart;
 
             while (loopEnd.Next != null)

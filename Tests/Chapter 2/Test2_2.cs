@@ -13,11 +13,11 @@ namespace Tests
         {
             const int NumElements = 5;
 
-            var list = TestHelpers.CreateLinkedList(Enumerable.Range(0, NumElements).Reverse().ToArray());
+            var list = ListHelpers.CreateLinkedList(Enumerable.Range(0, NumElements).Reverse().ToArray());
 
             for (int i = 0; i < NumElements; i++)
             {
-                var input = TestHelpers.CloneList(list);
+                var input = ListHelpers.CloneList(list);
                 var result = Question2_2.FindKthToLast(input, i);
 
                 Assert.AreEqual(i, result.Data);
@@ -31,10 +31,10 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => { Question2_2.FindKthToLast<int>(null, 0); }, typeof(ArgumentNullException));
 
             // K invalid
-            var list = TestHelpers.CreateLinkedList(1, 2, 3);
+            var list = ListHelpers.CreateLinkedList(1, 2, 3);
             TestHelpers.AssertExceptionThrown(() => { Question2_2.FindKthToLast(list, -1); }, typeof(ArgumentOutOfRangeException));
 
-            list = TestHelpers.CreateLinkedList(1, 2, 3);
+            list = ListHelpers.CreateLinkedList(1, 2, 3);
             TestHelpers.AssertExceptionThrown(() => { Question2_2.FindKthToLast(list, 4); }, typeof(ArgumentOutOfRangeException));
         }
     }

@@ -63,7 +63,7 @@ namespace Tests
             var list1 = CreateDigitList(num1, reversed: true);
             var list2 = CreateDigitList(num2, reversed: true);
             var result = Question2_5.Add(list1, list2);
-            TestHelpers.ValidateLinkedListContent(result, expectedResultArray.Select(r => new Digit(r)).ToArray());
+            ListHelpers.ValidateLinkedListContent(result, expectedResultArray.Select(r => new Digit(r)).ToArray());
         }
 
         private static void ValidateNotReversedHelper(int num1, int num2, int expectedResult)
@@ -72,13 +72,13 @@ namespace Tests
             var list1 = CreateDigitList(num1);
             var list2 = CreateDigitList(num2);
             var result = Question2_5.AddNotReversed(list1, list2);
-            TestHelpers.ValidateLinkedListContent(result, expectedResultArray.Select(r => new Digit(r)).ToArray());
+            ListHelpers.ValidateLinkedListContent(result, expectedResultArray.Select(r => new Digit(r)).ToArray());
         }
 
         private static Node<Digit> CreateDigitList(int num, bool reversed = false)
         {
             var result = CreateList(num, reversed);
-            return TestHelpers.CreateLinkedList(result.Select(item => new Digit(item)).ToArray());
+            return ListHelpers.CreateLinkedList(result.Select(item => new Digit(item)).ToArray());
         }
 
         private static List<int> CreateList(int num, bool reversed = false)

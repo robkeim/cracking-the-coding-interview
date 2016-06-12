@@ -10,18 +10,18 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
-            var list = TestHelpers.CreateLinkedList(3, 2, 1);
+            var list = ListHelpers.CreateLinkedList(3, 2, 1);
             ValidateResult(2, list, 1, 3, 2);
 
             // No change needed (x is smaller)
-            list = TestHelpers.CreateLinkedList(1, 2, 3);
+            list = ListHelpers.CreateLinkedList(1, 2, 3);
             ValidateResult(0, list, 1, 2, 3);
 
             // No change needed (x is larger)
-            list = TestHelpers.CreateLinkedList(1, 2, 3);
+            list = ListHelpers.CreateLinkedList(1, 2, 3);
             ValidateResult(4, list, 1, 2, 3);
 
-            list = TestHelpers.CreateLinkedList(1, 3, 3, 1);
+            list = ListHelpers.CreateLinkedList(1, 3, 3, 1);
             ValidateResult(2, list, 1, 1, 3, 3);
         }
 
@@ -29,13 +29,13 @@ namespace Tests
         public void EdgeCasesTest()
         {
             // One node
-            var list = TestHelpers.CreateLinkedList(1);
+            var list = ListHelpers.CreateLinkedList(1);
             ValidateResult(0, list, 1);
 
-            list = TestHelpers.CreateLinkedList(1);
+            list = ListHelpers.CreateLinkedList(1);
             ValidateResult(1, list, 1);
 
-            list = TestHelpers.CreateLinkedList(1);
+            list = ListHelpers.CreateLinkedList(1);
             ValidateResult(2, list, 1);
         }
 
@@ -50,7 +50,7 @@ namespace Tests
             where T : IEquatable<T>, IComparable<T>
         {
             var result = Question2_4.PartitionList(list, x);
-            TestHelpers.ValidateLinkedListContent(result, expectedResult);
+            ListHelpers.ValidateLinkedListContent(result, expectedResult);
         }
     }
 }

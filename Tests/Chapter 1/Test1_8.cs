@@ -14,64 +14,64 @@ namespace Tests
             // 1 1 1    1 1 1
             // 1 1 1 -> 1 1 1
             // 1 1 1    1 1 1
-            var input = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 1, 1, 1, 1, 1);
-            var expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 1, 1, 1, 1, 1);
+            var input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 1, 1, 1, 1, 1);
+            var expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 1, 1, 1, 1, 1);
             ValidateResult(input, expectedResult);
 
             // All zeros
             // 0 0 0    0 0 0
             // 0 0 0 -> 0 0 0
             // 0 0 0    0 0 0
-            input = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
             ValidateResult(input, expectedResult);
 
             // Forward slash
             // 1 1 0    0 0 0
             // 1 0 1 -> 0 0 0
             // 0 1 1    0 0 0
-            input = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 0, 1, 0, 1, 0, 1, 1);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 1, 0, 1, 0, 1, 0, 1, 1);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
             ValidateResult(input, expectedResult);
 
             // Backward slash
             // 0 1 1    0 0 0
             // 1 0 1 -> 0 0 0
             // 1 1 0    0 0 0
-            input = TestHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 0, 1, 1, 1, 0);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 0, 1, 1, 1, 0);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 0, 0, 0, 0, 0);
             ValidateResult(input, expectedResult);
 
             // One zero
             // 0 1 1    0 0 0
             // 1 1 1 -> 0 1 1
             // 1 1 1    0 1 1
-            input = TestHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 1, 1, 1, 1, 1);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 1, 1, 0, 1, 1);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 1, 1, 1, 1, 1);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 1, 1, 0, 1, 1);
             ValidateResult(input, expectedResult);
 
             // Corners
             // 0 1 1    0 0 0
             // 1 1 1 -> 0 1 0
             // 1 1 0    0 0 0
-            input = TestHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 1, 1, 1, 1, 0);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 1, 0, 0, 0, 0);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(0, 1, 1, 1, 1, 1, 1, 1, 0);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 0, 1, 0, 0, 0, 0);
             ValidateResult(input, expectedResult);
 
             // Center
             // 1 1 1    1 0 1
             // 1 0 1 -> 0 0 0
             // 1 1 1    1 0 1
-            input = TestHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 0, 1, 1, 1, 1);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1, 0, 1, 0, 0, 0, 1, 0, 1);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 1, 1, 1, 0, 1, 1, 1, 1);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(1, 0, 1, 0, 0, 0, 1, 0, 1);
             ValidateResult(input, expectedResult);
 
             // Random
             // 1 0 1    0 0 0
             // 1 1 1 -> 1 0 1
             // 1 1 1    1 0 1
-            input = TestHelpers.CreateTwoDimensionalMatrix(1, 0, 1, 1, 1, 1, 1, 1, 1);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 1, 0, 1, 1, 0, 1);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 0, 1, 1, 1, 1, 1, 1, 1);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0, 0, 0, 1, 0, 1, 1, 0, 1);
             ValidateResult(input, expectedResult);
         }
 
@@ -79,13 +79,13 @@ namespace Tests
         public void EdgeCaseTest()
         {
             // 1x1 with 0
-            var input = TestHelpers.CreateTwoDimensionalMatrix(0);
-            var expectedResult = TestHelpers.CreateTwoDimensionalMatrix(0);
+            var input = MatrixHelpers.CreateTwoDimensionalMatrix(0);
+            var expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(0);
             ValidateResult(input, expectedResult);
 
             // 1x1 with 1
-            input = TestHelpers.CreateTwoDimensionalMatrix(1);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(1);
             ValidateResult(input, expectedResult);
         }
 

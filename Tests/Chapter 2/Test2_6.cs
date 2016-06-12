@@ -28,7 +28,7 @@ namespace Tests
 
         private static void Validate(bool expectedResult, params int[] values)
         {
-            var head = TestHelpers.CreateLinkedList(values);
+            var head = ListHelpers.CreateLinkedList(values);
             Assert.AreEqual(expectedResult, Question2_6.IsPalindrome(head));
         }
     }

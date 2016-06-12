@@ -20,6 +20,7 @@ namespace Code
             queueStack = new Stack<T>();
         }
 
+        // Space: 0(1)
         // Time: O(N) when the previous operation was a remove
         public void Add(T item)
         {
@@ -41,6 +42,7 @@ namespace Code
             numItems++;
         }
 
+        // Space: O(1)
         // Time: O(N) when the previous operation was an add
         public T Remove()
         {

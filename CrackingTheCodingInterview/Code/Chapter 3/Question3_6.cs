@@ -11,8 +11,9 @@ namespace Code
     // to maintain this system and implement operations such as enqueue, dequeueAny, dequeueDog, and dequeueCat.  You may use the built-in LinkedList
     // data structure.
 
-    // Space: O(N) -> the number of animals in the shelter
-    // Time: O(1) -> for all of the methods implemented
+    // For all methods:
+    // Space: O(N) where N is the number of animals in the shelter
+    // Time: O(1)
     [SuppressMessage("Documentation Rules", "SA1649")]
     public class AnimalShelter
     {

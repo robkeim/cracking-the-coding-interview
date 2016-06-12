@@ -11,23 +11,23 @@ namespace Tests
         public void BasicTest()
         {
             // 2x2
-            var input = TestHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4);
-            var expectedResult = TestHelpers.CreateTwoDimensionalMatrix(3, 1, 4, 2);
+            var input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4);
+            var expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(3, 1, 4, 2);
             ValidateResult(input, expectedResult);
 
             // 3x3
-            input = TestHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4, 5, 6, 7, 8, 9);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(7, 4, 1, 8, 5, 2, 9, 6, 3);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4, 5, 6, 7, 8, 9);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(7, 4, 1, 8, 5, 2, 9, 6, 3);
             ValidateResult(input, expectedResult);
 
             // 4x4
-            input = TestHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(13, 9, 5, 1, 14, 10, 6, 2, 15, 11, 7, 3, 16, 12, 8, 4);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(13, 9, 5, 1, 14, 10, 6, 2, 15, 11, 7, 3, 16, 12, 8, 4);
             ValidateResult(input, expectedResult);
 
             // 5x5
-            input = TestHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25);
-            expectedResult = TestHelpers.CreateTwoDimensionalMatrix(21, 16, 11, 6, 1, 22, 17, 12, 7, 2, 23, 18, 13, 8, 3, 24, 19, 14, 9, 4, 25, 20, 15, 10, 5);
+            input = MatrixHelpers.CreateTwoDimensionalMatrix(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25);
+            expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(21, 16, 11, 6, 1, 22, 17, 12, 7, 2, 23, 18, 13, 8, 3, 24, 19, 14, 9, 4, 25, 20, 15, 10, 5);
             ValidateResult(input, expectedResult);
         }
 
@@ -35,8 +35,8 @@ namespace Tests
         public void EdgeCaseTest()
         {
             // 1x1
-            var input = TestHelpers.CreateTwoDimensionalMatrix(1);
-            var expectedResult = TestHelpers.CreateTwoDimensionalMatrix(1);
+            var input = MatrixHelpers.CreateTwoDimensionalMatrix(1);
+            var expectedResult = MatrixHelpers.CreateTwoDimensionalMatrix(1);
             ValidateResult(input, expectedResult);
         }
 

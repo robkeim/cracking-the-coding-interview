@@ -24,6 +24,8 @@ namespace Code
             minValues = new T[MaxSize];
         }
 
+        // Space: O(1)
+        // Time: O(1)
         public T Pop()
         {
             if (numItems == 0)
@@ -37,6 +39,8 @@ namespace Code
             return result;
         }
 
+        // Space: O(1)
+        // Time: O(1)
         public void Push(T item)
         {
             if (numItems == MaxSize)
@@ -57,6 +61,8 @@ namespace Code
             numItems++;
         }
 
+        // Space: O(1)
+        // Time: O(1)
         public T Min()
         {
             if (numItems == 0)

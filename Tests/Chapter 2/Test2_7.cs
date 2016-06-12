@@ -10,36 +10,36 @@ namespace Tests
         [TestMethod]
         public void BasicTest()
         {
-            var list1 = TestHelpers.CreateLinkedList(1, 2, 3);
-            var list2 = TestHelpers.CreateLinkedList(4, 5, 6);
-            var intersection = TestHelpers.CreateLinkedList(7, 8, 9);
+            var list1 = ListHelpers.CreateLinkedList(1, 2, 3);
+            var list2 = ListHelpers.CreateLinkedList(4, 5, 6);
+            var intersection = ListHelpers.CreateLinkedList(7, 8, 9);
             AddIntersection(list1, list2, intersection);
             Validate(list1, list2, intersection);
 
             // Different sized lists
-            list1 = TestHelpers.CreateLinkedList(1);
-            list2 = TestHelpers.CreateLinkedList(2, 3);
-            intersection = TestHelpers.CreateLinkedList(4, 5, 6);
+            list1 = ListHelpers.CreateLinkedList(1);
+            list2 = ListHelpers.CreateLinkedList(2, 3);
+            intersection = ListHelpers.CreateLinkedList(4, 5, 6);
             AddIntersection(list1, list2, intersection);
             Validate(list1, list2, intersection);
 
             // Intersection is last node
-            list1 = TestHelpers.CreateLinkedList(1, 2);
-            list2 = TestHelpers.CreateLinkedList(3, 4, 5);
-            intersection = TestHelpers.CreateLinkedList(6);
+            list1 = ListHelpers.CreateLinkedList(1, 2);
+            list2 = ListHelpers.CreateLinkedList(3, 4, 5);
+            intersection = ListHelpers.CreateLinkedList(6);
             AddIntersection(list1, list2, intersection);
             Validate(list1, list2, intersection);
 
             // Repeated values (to ensure references are being computed)
-            list1 = TestHelpers.CreateLinkedList(1, 3);
-            list2 = TestHelpers.CreateLinkedList(2, 2, 2);
-            intersection = TestHelpers.CreateLinkedList(2);
+            list1 = ListHelpers.CreateLinkedList(1, 3);
+            list2 = ListHelpers.CreateLinkedList(2, 2, 2);
+            intersection = ListHelpers.CreateLinkedList(2);
             AddIntersection(list1, list2, intersection);
             Validate(list1, list2, intersection);
 
             // No intersection
-            list1 = TestHelpers.CreateLinkedList(1, 2, 3);
-            list2 = TestHelpers.CreateLinkedList(4, 5, 6);
+            list1 = ListHelpers.CreateLinkedList(1, 2, 3);
+            list2 = ListHelpers.CreateLinkedList(4, 5, 6);
             Validate(list1, list2, null);
         }
 

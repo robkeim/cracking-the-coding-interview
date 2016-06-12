@@ -11,15 +11,15 @@ namespace Tests
         public void BasicTest()
         {
             // Test case given in the problem
-            var demoList = TestHelpers.CreateLinkedList('a', 'b', 'c', 'd', 'e');
+            var demoList = ListHelpers.CreateLinkedList('a', 'b', 'c', 'd', 'e');
             ValidateResult(demoList, demoList.Next.Next, 'a', 'b', 'd', 'e');
 
             // Remove first node
-            var list = TestHelpers.CreateLinkedList(1, 2, 3);
+            var list = ListHelpers.CreateLinkedList(1, 2, 3);
             ValidateResult(list, list, 2, 3);
 
             // Remove middle node
-            list = TestHelpers.CreateLinkedList(1, 2, 3);
+            list = ListHelpers.CreateLinkedList(1, 2, 3);
             ValidateResult(list, list.Next, 1, 3);
         }
 
@@ -38,7 +38,7 @@ namespace Tests
             where T : IEquatable<T>
         {
             Question2_3.RemoveNode(nodeToRemove);
-            TestHelpers.ValidateLinkedListContent(list, expectedResult);
+            ListHelpers.ValidateLinkedListContent(list, expectedResult);
         }
     }
 }
