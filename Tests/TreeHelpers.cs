@@ -46,5 +46,24 @@ namespace Tests
                 AssertTreesAreEqual(first.Children[i], second.Children[i]);
             }
         }
+
+        public static TreeNode<int> CreateBinaryTree(int data)
+        {
+            return CreateBinaryTree(data, left: null, right: null);
+        }
+
+        [SuppressMessage("Microsoft.Design", "CA1026")]
+        public static TreeNode<int> CreateBinaryTree(int data, int? left, int? right)
+        {
+            var leftNode = left != null ? CreateBinaryTree(left.Value) : null;
+            var rightNode = right != null ? CreateBinaryTree(right.Value) : null;
+
+            return new TreeNode<int>(data, new[] { leftNode, rightNode });
+        }
+
+        public static TreeNode<int> CreateBinaryTree(int data, TreeNode<int> leftNode, TreeNode<int> rightNode)
+        {
+            return new TreeNode<int>(data, new[] { leftNode, rightNode });
+        }
     }
 }

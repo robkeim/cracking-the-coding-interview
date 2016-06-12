@@ -7,7 +7,7 @@ using System.Linq;
 namespace Code
 {
     // This Node implementation is directly from the book (modified as needed)
-    [DebuggerDisplay("Data = {Data}")]
+    [DebuggerDisplay("Data = {Data}, Children = {DebuggerDisplay}")]
     public class TreeNode<T>
         where T : IEquatable<T>
     {
@@ -28,5 +28,7 @@ namespace Code
 
         [SuppressMessage("Microsoft.Performance", "CA1819")]
         public TreeNode<T>[] Children { get; set; }
+
+        private string DebuggerDisplay => string.Join("_", Children.Select(c => c?.Data.ToString() ?? "null"));
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="Chapter 1\Question1_1.cs" />
     <Compile Include="Chapter 1\Question1_5.cs" />
     <Compile Include="Chapter 4\Question4_1.cs" />
+    <Compile Include="Chapter 4\Question4_2.cs" />
     <Compile Include="Data structures\Digit.cs" />
     <Compile Include="Data structures\TreeNode.cs" />
     <Compile Include="MeetingScheduler\Meeting.cs" />
