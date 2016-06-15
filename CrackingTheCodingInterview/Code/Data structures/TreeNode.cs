@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Code
 {
-    // This Node implementation is directly from the book (modified as needed)
+    // This TreeNode implementation is directly from the book (modified as needed)
     [DebuggerDisplay("Data = {Data}, Children = {DebuggerDisplay}")]
     public class TreeNode<T>
         where T : IEquatable<T>

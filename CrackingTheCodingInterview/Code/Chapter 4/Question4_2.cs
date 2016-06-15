@@ -9,7 +9,7 @@ namespace Code
 
         // Space: O(N)
         // Time: O(N)
-        public static TreeNode<int> MakeMinimalBinarySearchTree(int[] input)
+        public static BinaryTreeNode<int> MakeMinimalBinarySearchTree(int[] input)
         {
             if (input == null)
             {
@@ -19,7 +19,7 @@ namespace Code
             return MakeMinimalBinarySearchTree(input, 0, input.Length - 1);
         }
 
-        private static TreeNode<int> MakeMinimalBinarySearchTree(int[] input, int start, int end)
+        private static BinaryTreeNode<int> MakeMinimalBinarySearchTree(int[] input, int start, int end)
         {
             if (end < start)
             {
@@ -30,7 +30,7 @@ namespace Code
             var left = MakeMinimalBinarySearchTree(input, start, middle - 1);
             var right = MakeMinimalBinarySearchTree(input, middle + 1, end);
 
-            return new TreeNode<int>(input[middle], new[] { left, right });
+            return new BinaryTreeNode<int>(input[middle], left, right);
         }
     }
 }

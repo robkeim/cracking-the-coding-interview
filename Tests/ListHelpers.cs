@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Code;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -71,6 +72,11 @@ namespace Tests
 
             Assert.IsNull(head);
             Assert.AreEqual(numElements, count);
+        }
+
+        public static List<T> CreateList<T>(params T[] values)
+        {
+            return new List<T>(values);
         }
     }
 }

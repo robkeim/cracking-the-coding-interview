@@ -47,23 +47,39 @@ namespace Tests
             }
         }
 
-        public static TreeNode<int> CreateBinaryTree(int data)
+        [SuppressMessage("Microsoft.Design", "CA1062")]
+        public static void AssertBinaryTreesAreEqual<T>(BinaryTreeNode<T> first, BinaryTreeNode<T> second)
+            where T : IEquatable<T>
         {
-            return CreateBinaryTree(data, left: null, right: null);
+            if (first == null && second == null)
+            {
+                return;
+            }
+
+            Assert.IsNotNull(first);
+            Assert.IsNotNull(second);
+            Assert.AreEqual(first.Data, second.Data);
+
+            AssertBinaryTreesAreEqual(first.Left, second.Left);
+            AssertBinaryTreesAreEqual(first.Right, second.Right);
         }
 
-        [SuppressMessage("Microsoft.Design", "CA1026")]
-        public static TreeNode<int> CreateBinaryTree(int data, int? left, int? right)
+        public static BinaryTreeNode<T> CreateBinaryTree<T>(T data)
+            where T : IEquatable<T>
         {
-            var leftNode = left != null ? CreateBinaryTree(left.Value) : null;
-            var rightNode = right != null ? CreateBinaryTree(right.Value) : null;
-
-            return new TreeNode<int>(data, new[] { leftNode, rightNode });
+            return new BinaryTreeNode<T>(data);
         }
 
-        public static TreeNode<int> CreateBinaryTree(int data, TreeNode<int> leftNode, TreeNode<int> rightNode)
+        public static BinaryTreeNode<T> CreateBinaryTree<T>(T data, T left, T right)
+            where T : IEquatable<T>
         {
-            return new TreeNode<int>(data, new[] { leftNode, rightNode });
+            return CreateBinaryTree(data, new BinaryTreeNode<T>(left), new BinaryTreeNode<T>(right));
+        }
+
+        public static BinaryTreeNode<T> CreateBinaryTree<T>(T data, BinaryTreeNode<T> left, BinaryTreeNode<T> right)
+            where T : IEquatable<T>
+        {
+            return new BinaryTreeNode<T>(data, left, right);
         }
     }
 }

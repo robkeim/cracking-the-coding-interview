@@ -27,7 +27,7 @@ namespace Tests
             expectedResult = TreeHelpers.CreateBinaryTree(
                 data: 0,
                     left: null,
-                    right: 1);
+                    right: new BinaryTreeNode<int>(1));
 
             ValidateInput(2, expectedResult);
 
@@ -42,37 +42,37 @@ namespace Tests
             // 4 elements
             expectedResult = TreeHelpers.CreateBinaryTree(
                 data: 1,
-                    leftNode: TreeHelpers.CreateBinaryTree(
+                    left: TreeHelpers.CreateBinaryTree(
                         data: 0),
-                    rightNode: TreeHelpers.CreateBinaryTree(
+                    right: TreeHelpers.CreateBinaryTree(
                         data: 2,
-                        left: null,
-                        right: 3));
+                            left: null,
+                            right: new BinaryTreeNode<int>(3)));
 
             ValidateInput(4, expectedResult);
 
             // 5 elements
             expectedResult = TreeHelpers.CreateBinaryTree(
                 data: 2,
-                    leftNode: TreeHelpers.CreateBinaryTree(
+                    left: TreeHelpers.CreateBinaryTree(
                         data: 0,
                             left: null,
-                            right: 1),
-                    rightNode: TreeHelpers.CreateBinaryTree(
+                            right: new BinaryTreeNode<int>(1)),
+                    right: TreeHelpers.CreateBinaryTree(
                         data: 3,
                             left: null,
-                            right: 4));
+                            right: new BinaryTreeNode<int>(4)));
 
             ValidateInput(5, expectedResult);
 
             // 6 elements
             expectedResult = TreeHelpers.CreateBinaryTree(
                 data: 2,
-                    leftNode: TreeHelpers.CreateBinaryTree(
+                    left: TreeHelpers.CreateBinaryTree(
                         data: 0,
                             left: null,
-                            right: 1),
-                    rightNode: TreeHelpers.CreateBinaryTree(
+                            right: new BinaryTreeNode<int>(1)),
+                    right: TreeHelpers.CreateBinaryTree(
                         data: 4,
                             left: 3,
                             right: 5));
@@ -82,11 +82,11 @@ namespace Tests
             // 7 elements
             expectedResult = TreeHelpers.CreateBinaryTree(
                 data: 3,
-                    leftNode: TreeHelpers.CreateBinaryTree(
+                    left: TreeHelpers.CreateBinaryTree(
                         data: 1,
                             left: 0,
                             right: 2),
-                    rightNode: TreeHelpers.CreateBinaryTree(
+                    right: TreeHelpers.CreateBinaryTree(
                         data: 5,
                             left: 4,
                             right: 6));
@@ -96,18 +96,18 @@ namespace Tests
             // 8 elements
             expectedResult = TreeHelpers.CreateBinaryTree(
                 data: 3,
-                    leftNode: TreeHelpers.CreateBinaryTree(
+                    left: TreeHelpers.CreateBinaryTree(
                         data: 1,
                             left: 0,
                             right: 2),
-                    rightNode: TreeHelpers.CreateBinaryTree(
+                    right: TreeHelpers.CreateBinaryTree(
                         data: 5,
-                            leftNode: TreeHelpers.CreateBinaryTree(
+                            left: TreeHelpers.CreateBinaryTree(
                                 data: 4),
-                            rightNode: TreeHelpers.CreateBinaryTree(
+                            right: TreeHelpers.CreateBinaryTree(
                                 data: 6,
                                     left: null,
-                                    right: 7)));
+                                    right: new BinaryTreeNode<int>(7))));
 
             ValidateInput(8, expectedResult);
         }
@@ -118,10 +118,10 @@ namespace Tests
             TestHelpers.AssertExceptionThrown(() => Question4_2.MakeMinimalBinarySearchTree(null), typeof(ArgumentNullException));
         }
 
-        private static void ValidateInput(int size, TreeNode<int> expectedResult)
+        private static void ValidateInput(int size, BinaryTreeNode<int> expectedResult)
         {
             var result = Question4_2.MakeMinimalBinarySearchTree(Enumerable.Range(0, size).ToArray());
-            TreeHelpers.AssertTreesAreEqual(result, expectedResult);
+            TreeHelpers.AssertBinaryTreesAreEqual(result, expectedResult);
         }
     }
 }
