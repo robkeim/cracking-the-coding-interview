@@ -7,33 +7,143 @@ namespace Tests
     public class Test1_1
     {
         [TestMethod]
-        public void BasicTest()
+        public void ImplementationOne_NoDuplicates_ReturnsTrue()
         {
-            // No duplicates
-            ValidateResult("abc", true);
+            // Arrange
+            const bool expected = true;
+            const string input = "abc";
 
-            // Duplicates
-            ValidateResult("aba", false);
+            // Act
+            var actual = Question1_1.AreAllCharactersUnique(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void CaseSensitivityTest()
+        public void ImplementationTwo_NoDuplicates_ReturnsTrue()
         {
-            // 'A' and 'a' are considered different characters
-            ValidateResult("Aa", true);
+            // Arrange
+            const bool expected = true;
+            const string input = "abc";
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
-        public void NullAndEmptyStringsTest()
+        public void ImplementationOne_Duplicates_ReturnsFalse()
         {
-            ValidateResult(null, true);
-            ValidateResult(string.Empty, true);
+            // Arrange
+            const bool expected = false;
+            const string input = "aba";
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUnique(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
 
-        private static void ValidateResult(string input, bool expectedResult)
+        [TestMethod]
+        public void ImplementationTwo_Duplicates_ReturnsFalse()
         {
-            Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUnique(input));
-            Assert.AreEqual(expectedResult, Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input));
+            // Arrange
+            const bool expected = false;
+            const string input = "aba";
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ImplementationOne_CasingDifference_ReturnsTrue()
+        {
+            // Arrange
+            const bool expected = true;
+            const string input = "Aa";
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUnique(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ImplementationTwo_CasingDifference_ReturnsTrue()
+        {
+            // Arrange
+            const bool expected = true;
+            const string input = "Aa";
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ImplementationOne_NullString_ReturnsTrue()
+        {
+            // Arrange
+            const bool expected = true;
+            const string input = null;
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUnique(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ImplementationTwo_NullString_ReturnsTrue()
+        {
+            // Arrange
+            const bool expected = true;
+            const string input = null;
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ImplementationOne_EmptyString_ReturnsTrue()
+        {
+            // Arrange
+            const bool expected = true;
+            var input = string.Empty;
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUnique(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ImplementationTwo_EmptyString_ReturnsTrue()
+        {
+            // Arrange
+            const bool expected = true;
+            var input = string.Empty;
+
+            // Act
+            var actual = Question1_1.AreAllCharactersUniqueNoAdditionalMemory(input);
+
+            // Assert
+            Assert.AreEqual(expected, actual);
         }
     }
 }
