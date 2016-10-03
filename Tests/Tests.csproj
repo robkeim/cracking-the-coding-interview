@@ -69,6 +69,7 @@
     <Compile Include="Chapter 4\Test4_3.cs" />
     <Compile Include="ListHelpers.cs" />
     <Compile Include="MatrixHelpers.cs" />
+    <Compile Include="Misc\SubstringSearchTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Chapter 1\Test1_2.cs" />
     <Compile Include="TestHelpers.cs" />
