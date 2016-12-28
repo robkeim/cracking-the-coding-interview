@@ -38,9 +38,9 @@ namespace Code
 
             for (int i = 0; i < input.Length - 1; i++)
             {
-                for (int j = i; j < input.Length; j++)
+                for (int j = i + 1; j < input.Length; j++)
                 {
-                    if (i != j && input[i] == input[j])
+                    if (input[i] == input[j])
                     {
                         return false;
                     }
