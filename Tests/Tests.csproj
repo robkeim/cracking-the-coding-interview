@@ -68,6 +68,7 @@
     <Compile Include="Chapter 4\Test4_2.cs" />
     <Compile Include="Chapter 4\Test4_3.cs" />
     <Compile Include="Chapter 4\Test4_4.cs" />
+    <Compile Include="Chapter 5\Test5_1.cs" />
     <Compile Include="ListHelpers.cs" />
     <Compile Include="MatrixHelpers.cs" />
     <Compile Include="Misc\SubstringSearchTests.cs" />
