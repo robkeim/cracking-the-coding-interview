@@ -23,7 +23,7 @@ namespace Code
                 throw new ArgumentException("No people for this meeting", nameof(people));
             }
 
-            List<Meeting> results = new List<Meeting>();
+            var results = new List<Meeting>();
 
             // The space of this array could be optimized
             var isBooked = new bool[24];

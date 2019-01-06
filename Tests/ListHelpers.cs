@@ -37,12 +37,12 @@ namespace Tests
                 throw new ArgumentNullException(nameof(values));
             }
 
-            Node<T> head = new Node<T>(values[0]);
+            var head = new Node<T>(values[0]);
             Node<T> cur = head;
 
             for (int i = 1; i < values.Length; i++)
             {
-                Node<T> next = new Node<T>(values[i]);
+                var next = new Node<T>(values[i]);
                 cur.Next = next;
                 cur = cur.Next;
             }

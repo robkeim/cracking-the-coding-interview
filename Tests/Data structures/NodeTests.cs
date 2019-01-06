@@ -10,7 +10,7 @@ namespace Tests
         public void BasicTest()
         {
             // Add an element
-            Node<int> head = new Node<int>(1);
+            var head = new Node<int>(1);
             ListHelpers.ValidateLinkedListContent(head, 1);
 
             // Add two more elements
@@ -27,7 +27,7 @@ namespace Tests
         public void RemoveTests()
         {
             // Add three elements
-            Node<int> head = new Node<int>(1);
+            var head = new Node<int>(1);
             head.AppendToTail(2);
             head.AppendToTail(3);
             ListHelpers.ValidateLinkedListContent(head, 1, 2, 3);

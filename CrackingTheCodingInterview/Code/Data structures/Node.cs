@@ -19,7 +19,7 @@ namespace Code
 
         public void AppendToTail(T data)
         {
-            Node<T> end = new Node<T>(data);
+            var end = new Node<T>(data);
             Node<T> n = this;
 
             while (n.Next != null)

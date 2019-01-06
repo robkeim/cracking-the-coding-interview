@@ -15,7 +15,7 @@ namespace Code
                 return true;
             }
 
-            HashSet<char> charactersInString = new HashSet<char>();
+            var charactersInString = new HashSet<char>();
             foreach (char c in input)
             {
                 if (!charactersInString.Add(c))
