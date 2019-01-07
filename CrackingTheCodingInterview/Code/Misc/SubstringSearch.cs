@@ -5,6 +5,9 @@ namespace Code
     // This is an implementation of the Rabin-Karp algorithm which can determine if a string is a substring of another in linear time
     // with respect to the larger string. Details of the algorithm can be found here:
     // https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm
+
+    // Space: O(1)
+    // Time: O(n) where n is the length of the larger string
     public static class SubstringSearch
     {
         public static bool IsSubstring(string toMatch, string toTest)

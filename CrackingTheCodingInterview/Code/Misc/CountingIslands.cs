@@ -7,6 +7,9 @@ namespace Code
         // Given a map indicating land (value 1) and water (value 0) determine the number
         // of islands that exist on the map. Islands are composed of adjacent land blocks
         // either directly north, west, east, or south but not diagonally.
+
+        // Space: O(1)
+        // Time: O(n^2) where n is one dimension of the map
         public static int CountIslands(bool[,] map)
         {
             if (map == null)
