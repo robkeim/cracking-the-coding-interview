@@ -44,7 +44,6 @@
     <TargetFrameworkMonikerAssemblyAttributesPath>$(MSBuildThisFileDirectory)AssemblyAttributes.cs</TargetFrameworkMonikerAssemblyAttributesPath>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
   </ItemGroup>
   <Choose>
@@ -71,6 +70,7 @@
     <Compile Include="Chapter 5\Test5_1.cs" />
     <Compile Include="ListHelpers.cs" />
     <Compile Include="MatrixHelpers.cs" />
+    <Compile Include="Misc\CountingIslandsTest.cs" />
     <Compile Include="Misc\SubstringSearchTests.cs" />
     <Compile Include="Misc\WordFrequenciesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

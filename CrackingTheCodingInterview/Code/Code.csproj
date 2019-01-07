@@ -63,6 +63,7 @@
     <Compile Include="MeetingScheduler\MeetingScheduler.cs" />
     <Compile Include="MeetingScheduler\Person.cs" />
     <Compile Include="Misc\BitHelpers.cs" />
+    <Compile Include="Misc\CountingIslands.cs" />
     <Compile Include="Misc\SubstringSearch.cs" />
     <Compile Include="Misc\WordFrequencies.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
