@@ -71,6 +71,7 @@
     <Compile Include="ListHelpers.cs" />
     <Compile Include="MatrixHelpers.cs" />
     <Compile Include="Misc\CountingIslandsTest.cs" />
+    <Compile Include="OverlappingParties\OverlappingPartiesTests.cs" />
     <Compile Include="Misc\SubstringSearchTests.cs" />
     <Compile Include="Misc\WordFrequenciesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
