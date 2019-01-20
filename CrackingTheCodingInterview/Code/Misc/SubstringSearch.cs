@@ -7,7 +7,7 @@ namespace Code
     // https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm
 
     // Space: O(1)
-    // Time: O(n) where n is the length of the larger string
+    // Time: O(N) where N is the length of the larger string
     public static class SubstringSearch
     {
         public static bool IsSubstring(string toMatch, string toTest)

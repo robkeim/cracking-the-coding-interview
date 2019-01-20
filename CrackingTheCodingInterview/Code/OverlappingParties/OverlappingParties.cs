@@ -11,8 +11,8 @@ namespace Code
         // the exact same time when another party ends those parties are considered to
         // not be overlapping.
 
-        // Space: O(n)
-        // Time: O(n^2)
+        // Space: O(N)
+        // Time: O(N^2)
         public static DateTime FindMostOverlappingParties(IEnumerable<Party> parties)
         {
             if (parties == null)

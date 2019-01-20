@@ -9,7 +9,7 @@ namespace Code
         // either directly north, west, east, or south but not diagonally.
 
         // Space: O(1)
-        // Time: O(n^2) where n is one dimension of the map
+        // Time: O(N^2) where N is one dimension of the map
         public static int CountIslands(bool[,] map)
         {
             if (map == null)
