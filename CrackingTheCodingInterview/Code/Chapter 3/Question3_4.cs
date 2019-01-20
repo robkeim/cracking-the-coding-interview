@@ -9,63 +9,63 @@ namespace Code
     [SuppressMessage("Microsoft.Naming", "CA1711")]
     public class MyQueue<T>
     {
-        private readonly Stack<T> stackStack;
-        private readonly Stack<T> queueStack;
-        private bool isQueue;
-        private int numItems;
+        private readonly Stack<T> _stackStack;
+        private readonly Stack<T> _queueStack;
+        private bool _isQueue;
+        private int _numItems;
 
         public MyQueue()
         {
-            stackStack = new Stack<T>();
-            queueStack = new Stack<T>();
+            _stackStack = new Stack<T>();
+            _queueStack = new Stack<T>();
         }
 
         // Space: 0(1)
         // Time: O(N) when the previous operation was a remove
         public void Add(T item)
         {
-            if (isQueue)
+            if (_isQueue)
             {
-                isQueue = false;
-                while (queueStack.Count != 0)
+                _isQueue = false;
+                while (_queueStack.Count != 0)
                 {
-                    stackStack.Push(queueStack.Pop());
+                    _stackStack.Push(_queueStack.Pop());
                 }
 
-                stackStack.Push(item);
+                _stackStack.Push(item);
             }
             else
             {
-                stackStack.Push(item);
+                _stackStack.Push(item);
             }
 
-            numItems++;
+            _numItems++;
         }
 
         // Space: O(1)
         // Time: O(N) when the previous operation was an add
         public T Remove()
         {
-            if (numItems == 0)
+            if (_numItems == 0)
             {
                 throw new InvalidOperationException("No items in the queue");
             }
 
-            numItems--;
+            _numItems--;
 
-            if (isQueue)
+            if (_isQueue)
             {
-                return queueStack.Pop();
+                return _queueStack.Pop();
             }
             else
             {
-                isQueue = true;
-                while (stackStack.Count != 0)
+                _isQueue = true;
+                while (_stackStack.Count != 0)
                 {
-                    queueStack.Push(stackStack.Pop());
+                    _queueStack.Push(_stackStack.Pop());
                 }
 
-                return queueStack.Pop();
+                return _queueStack.Pop();
             }
         }
     }

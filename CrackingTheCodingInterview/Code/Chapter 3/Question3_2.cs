@@ -13,28 +13,28 @@ namespace Code
         // NOTE: a better implemention would grow the size dynamically when more space was needed
         private const int MaxSize = 100;
 
-        private readonly T[] stackValues;
-        private readonly T[] minValues;
+        private readonly T[] _stackValues;
+        private readonly T[] _minValues;
 
-        private int numItems;
+        private int _numItems;
 
         public MinStack()
         {
-            stackValues = new T[MaxSize];
-            minValues = new T[MaxSize];
+            _stackValues = new T[MaxSize];
+            _minValues = new T[MaxSize];
         }
 
         // Space: O(1)
         // Time: O(1)
         public T Pop()
         {
-            if (numItems == 0)
+            if (_numItems == 0)
             {
                 throw new InvalidOperationException("Stack does not contain any elements");
             }
 
-            var result = stackValues[numItems - 1];
-            numItems--;
+            var result = _stackValues[_numItems - 1];
+            _numItems--;
 
             return result;
         }
@@ -43,34 +43,34 @@ namespace Code
         // Time: O(1)
         public void Push(T item)
         {
-            if (numItems == MaxSize)
+            if (_numItems == MaxSize)
             {
                 throw new InvalidOperationException("No more space in the stack");
             }
 
-            stackValues[numItems] = item;
+            _stackValues[_numItems] = item;
 
-            var curMin = numItems == 0
+            var curMin = _numItems == 0
                 ? item
-                : minValues[numItems - 1];
+                : _minValues[_numItems - 1];
 
-            minValues[numItems] = item.CompareTo(curMin) < 0
+            _minValues[_numItems] = item.CompareTo(curMin) < 0
                 ? item
                 : curMin;
 
-            numItems++;
+            _numItems++;
         }
 
         // Space: O(1)
         // Time: O(1)
         public T Min()
         {
-            if (numItems == 0)
+            if (_numItems == 0)
             {
                 throw new InvalidOperationException("Stack does not contain any elements");
             }
 
-            return minValues[numItems - 1];
+            return _minValues[_numItems - 1];
         }
     }
 }

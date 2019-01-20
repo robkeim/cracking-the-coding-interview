@@ -17,13 +17,13 @@ namespace Code
     [SuppressMessage("Documentation Rules", "SA1649")]
     public class AnimalShelter
     {
-        private readonly LinkedList<Cat> cats;
-        private readonly LinkedList<Dog> dogs;
+        private readonly LinkedList<Cat> _cats;
+        private readonly LinkedList<Dog> _dogs;
 
         public AnimalShelter()
         {
-            cats = new LinkedList<Cat>();
-            dogs = new LinkedList<Dog>();
+            _cats = new LinkedList<Cat>();
+            _dogs = new LinkedList<Dog>();
         }
 
         public void Enqueue(Animal animal)
@@ -33,11 +33,11 @@ namespace Code
 
             if (cat != null)
             {
-                cats.AddLast(cat);
+                _cats.AddLast(cat);
             }
             else if (dog != null)
             {
-                dogs.AddLast(dog);
+                _dogs.AddLast(dog);
             }
             else
             {
@@ -47,13 +47,13 @@ namespace Code
 
         public Animal DequeueAny()
         {
-            if (cats.Count == 0 && dogs.Count == 0)
+            if (_cats.Count == 0 && _dogs.Count == 0)
             {
                 throw new InvalidOperationException("There are no animals in the shelter");
             }
 
-            var catEnqueueTime = cats?.First?.Value?.ArrivalTime ?? DateTimeOffset.MaxValue;
-            var dogEnqueueTime = dogs?.First?.Value?.ArrivalTime ?? DateTimeOffset.MaxValue;
+            var catEnqueueTime = _cats?.First?.Value?.ArrivalTime ?? DateTimeOffset.MaxValue;
+            var dogEnqueueTime = _dogs?.First?.Value?.ArrivalTime ?? DateTimeOffset.MaxValue;
 
             // NOTE: this will favor a dog in the event that two animals were enqueued exactly at the same time although I doubt LinkedList is
             // thread safe, so if we wanted to support that scenario, we'd have to use a thread safe class or add locks around the accesses.
@@ -69,26 +69,26 @@ namespace Code
 
         public Cat DequeueCat()
         {
-            if (cats.Count == 0)
+            if (_cats.Count == 0)
             {
                 throw new InvalidOperationException("There are no cats in the shelter");
             }
 
-            var result = cats.First.Value;
-            cats.RemoveFirst();
+            var result = _cats.First.Value;
+            _cats.RemoveFirst();
 
             return result;
         }
 
         public Dog DequeueDog()
         {
-            if (dogs.Count == 0)
+            if (_dogs.Count == 0)
             {
                 throw new InvalidOperationException("There are no dogs in the shelter");
             }
 
-            var result = dogs.First.Value;
-            dogs.RemoveFirst();
+            var result = _dogs.First.Value;
+            _dogs.RemoveFirst();
 
             return result;
         }

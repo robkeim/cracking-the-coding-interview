@@ -8,7 +8,7 @@ namespace Tests
     [TestClass]
     public class OverlappingPartiesTests
     {
-        private readonly DateTime janFirst = new DateTime(2000, 1, 1);
+        private readonly DateTime _janFirst = new DateTime(2000, 1, 1);
 
         [TestMethod]
         public void FindMostOverlappingParties_WithOneParty_ReturnsStartDateOfFirstParty()
@@ -16,14 +16,14 @@ namespace Tests
             // Arrange
             var parties = new List<Party>
             {
-                new Party(janFirst, janFirst.AddDays(1))
+                new Party(_janFirst, _janFirst.AddDays(1))
             };
 
             // Act
             var actual = OverlappingParties.FindMostOverlappingParties(parties);
 
             // Assert
-            Assert.AreEqual(janFirst, actual);
+            Assert.AreEqual(_janFirst, actual);
         }
 
         [TestMethod]
@@ -32,15 +32,15 @@ namespace Tests
             // Arrange
             var parties = new List<Party>
             {
-                new Party(janFirst, janFirst.AddDays(2)),
-                new Party(janFirst.AddDays(1), janFirst.AddDays(3))
+                new Party(_janFirst, _janFirst.AddDays(2)),
+                new Party(_janFirst.AddDays(1), _janFirst.AddDays(3))
             };
 
             // Act
             var actual = OverlappingParties.FindMostOverlappingParties(parties);
 
             // Assert
-            Assert.AreEqual(janFirst.AddDays(1), actual);
+            Assert.AreEqual(_janFirst.AddDays(1), actual);
         }
 
         [TestMethod]
@@ -49,15 +49,15 @@ namespace Tests
             // Arrange
             var parties = new List<Party>
             {
-                new Party(janFirst, janFirst.AddDays(1)),
-                new Party(janFirst.AddDays(1), janFirst.AddDays(2))
+                new Party(_janFirst, _janFirst.AddDays(1)),
+                new Party(_janFirst.AddDays(1), _janFirst.AddDays(2))
             };
 
             // Act
             var actual = OverlappingParties.FindMostOverlappingParties(parties);
 
             // Assert
-            Assert.AreEqual(janFirst, actual);
+            Assert.AreEqual(_janFirst, actual);
         }
 
         [TestMethod]
@@ -66,15 +66,15 @@ namespace Tests
             // Arrange
             var parties = new List<Party>
             {
-                new Party(janFirst, janFirst.AddDays(1)),
-                new Party(janFirst, janFirst.AddDays(1))
+                new Party(_janFirst, _janFirst.AddDays(1)),
+                new Party(_janFirst, _janFirst.AddDays(1))
             };
 
             // Act
             var actual = OverlappingParties.FindMostOverlappingParties(parties);
 
             // Assert
-            Assert.AreEqual(janFirst, actual);
+            Assert.AreEqual(_janFirst, actual);
         }
 
         [TestMethod]
@@ -83,16 +83,16 @@ namespace Tests
             // Arrange
             var parties = new List<Party>
             {
-                new Party(janFirst, janFirst.AddDays(1)),
-                new Party(janFirst.AddDays(2), janFirst.AddDays(4)),
-                new Party(janFirst.AddDays(3), janFirst.AddDays(5))
+                new Party(_janFirst, _janFirst.AddDays(1)),
+                new Party(_janFirst.AddDays(2), _janFirst.AddDays(4)),
+                new Party(_janFirst.AddDays(3), _janFirst.AddDays(5))
             };
 
             // Act
             var actual = OverlappingParties.FindMostOverlappingParties(parties);
 
             // Assert
-            Assert.AreEqual(janFirst.AddDays(3), actual);
+            Assert.AreEqual(_janFirst.AddDays(3), actual);
         }
 
         [TestMethod]
@@ -126,7 +126,7 @@ namespace Tests
             // Arrange
             var parties = new List<Party>
             {
-                new Party(janFirst, janFirst.AddDays(-1))
+                new Party(_janFirst, _janFirst.AddDays(-1))
             };
 
             // Act

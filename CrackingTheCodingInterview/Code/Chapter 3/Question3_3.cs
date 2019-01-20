@@ -17,50 +17,50 @@ namespace Code
         // Small value for testing purposes
         private const int MaxSizePerStack = 2;
 
-        private readonly List<T[]> setOfStacks;
-        private int numItems;
+        private readonly List<T[]> _setOfStacks;
+        private int _numItems;
 
         public SetOfStacks()
         {
-            setOfStacks = new List<T[]>();
+            _setOfStacks = new List<T[]>();
         }
 
         // Space: O(N) where N is the size of a sub-stack
         // Time: O(1)
         public void Push(T item)
         {
-            if (numItems % MaxSizePerStack == 0)
+            if (_numItems % MaxSizePerStack == 0)
             {
                 // have to create a new stack
-                setOfStacks.Add(new T[MaxSizePerStack]);
+                _setOfStacks.Add(new T[MaxSizePerStack]);
             }
 
-            var stackNumber = numItems / MaxSizePerStack;
-            var itemNumber = numItems % MaxSizePerStack;
+            var stackNumber = _numItems / MaxSizePerStack;
+            var itemNumber = _numItems % MaxSizePerStack;
 
-            setOfStacks[stackNumber][itemNumber] = item;
+            _setOfStacks[stackNumber][itemNumber] = item;
 
-            numItems++;
+            _numItems++;
         }
 
         // Space: O(1)
         // Time: O(1)
         public T Pop()
         {
-            if (numItems == 0)
+            if (_numItems == 0)
             {
                 throw new InvalidOperationException("Stack is empty");
             }
 
-            numItems--;
-            var stackNumber = numItems / MaxSizePerStack;
-            var itemNumber = numItems % MaxSizePerStack;
+            _numItems--;
+            var stackNumber = _numItems / MaxSizePerStack;
+            var itemNumber = _numItems % MaxSizePerStack;
 
-            var result = setOfStacks[stackNumber][itemNumber];
+            var result = _setOfStacks[stackNumber][itemNumber];
 
             if (itemNumber == 0)
             {
-                setOfStacks.RemoveAt(stackNumber);
+                _setOfStacks.RemoveAt(stackNumber);
             }
 
             return result;

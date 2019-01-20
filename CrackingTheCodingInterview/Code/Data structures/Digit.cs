@@ -6,7 +6,7 @@ namespace Code
     [DebuggerDisplay("Value = {value}")]
     public class Digit : IEquatable<Digit>
     {
-        private readonly int value;
+        private readonly int _value;
 
         public Digit(int value)
         {
@@ -15,12 +15,12 @@ namespace Code
                 throw new ArgumentOutOfRangeException(nameof(value), "Value must be between 0 and 9 inclusive");
             }
 
-            this.value = value;
+            _value = value;
         }
 
         public static implicit operator int(Digit digit)
         {
-            return digit?.value ?? 0;
+            return digit?._value ?? 0;
         }
 
         public static int ToInt(Digit digit)
@@ -35,12 +35,12 @@ namespace Code
 
         public override int GetHashCode()
         {
-            return value;
+            return _value;
         }
 
         public bool Equals(Digit other)
         {
-            return other != null && value == other.value;
+            return other != null && _value == other._value;
         }
     }
 }

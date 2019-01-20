@@ -16,7 +16,7 @@ namespace Code
     // to be many repeated words and the ratio of the number of unique words to the number of words is going to grow logarithmically.
     public class WordFrequencies
     {
-        private readonly IReadOnlyDictionary<int, List<string>> nthMostDictionary;
+        private readonly IReadOnlyDictionary<int, List<string>> _nthMostDictionary;
 
         public WordFrequencies(IEnumerable<string> words)
         {
@@ -26,7 +26,7 @@ namespace Code
             }
 
             var frequencies = BuildFrequencyDictionary(words);
-            nthMostDictionary = BuildNthMostDictionary(frequencies);
+            _nthMostDictionary = BuildNthMostDictionary(frequencies);
         }
 
         // There are at least two different ways that could be considered valid orderings here for the following sample case:
@@ -53,7 +53,7 @@ namespace Code
 
             List<string> result;
 
-            if (!nthMostDictionary.TryGetValue(nth, out result))
+            if (!_nthMostDictionary.TryGetValue(nth, out result))
             {
                 result = null;
             }

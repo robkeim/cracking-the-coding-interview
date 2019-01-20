@@ -10,33 +10,33 @@ namespace Code
     public class SortedStack<T>
             where T : IComparable<T>
     {
-        private readonly Stack<T> stack;
-        private readonly Stack<T> tmpStack;
-        private int numItems;
+        private readonly Stack<T> _stack;
+        private readonly Stack<T> _tmpStack;
+        private int _numItems;
 
         public SortedStack()
         {
-            stack = new Stack<T>();
-            tmpStack = new Stack<T>();
+            _stack = new Stack<T>();
+            _tmpStack = new Stack<T>();
         }
 
         // Time: O(N)
         // Space: O(1) -> no additional space besides the items in the stack
         public void Push(T item)
         {
-            while (stack.Count != 0 && item.CompareTo(stack.Peek()) > 0)
+            while (_stack.Count != 0 && item.CompareTo(_stack.Peek()) > 0)
             {
-                tmpStack.Push(stack.Pop());
+                _tmpStack.Push(_stack.Pop());
             }
 
-            while (tmpStack.Count != 0 && item.CompareTo(tmpStack.Peek()) < 0)
+            while (_tmpStack.Count != 0 && item.CompareTo(_tmpStack.Peek()) < 0)
             {
-                stack.Push(tmpStack.Pop());
+                _stack.Push(_tmpStack.Pop());
             }
 
-            stack.Push(item);
+            _stack.Push(item);
 
-            numItems++;
+            _numItems++;
         }
 
         // Time: O(N)
@@ -44,33 +44,33 @@ namespace Code
         public T Pop()
         {
             Peek();
-            numItems--;
+            _numItems--;
 
-            return stack.Pop();
+            return _stack.Pop();
         }
 
         // Time: O(N)
         // Space: O(1) -> no additional space besides the items in the stack
         public T Peek()
         {
-            if (numItems == 0)
+            if (_numItems == 0)
             {
                 throw new InvalidOperationException("Stack has no elements");
             }
 
-            while (tmpStack.Count != 0)
+            while (_tmpStack.Count != 0)
             {
-                stack.Push(tmpStack.Pop());
+                _stack.Push(_tmpStack.Pop());
             }
 
-            return stack.Peek();
+            return _stack.Peek();
         }
 
         // Time: O(1)
         // Space: O(1)
         public bool IsEmpty()
         {
-            return numItems == 0;
+            return _numItems == 0;
         }
     }
 }
