@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="Chapter 16\Tests16_1.cs" />
     <Compile Include="Chapter 16\Tests16_2.cs" />
+    <Compile Include="Chapter 16\Tests16_4.cs" />
     <Compile Include="Chapter 1\Test1_1.cs" />
     <Compile Include="Chapter 1\Test1_5.cs" />
     <Compile Include="Chapter 4\Test4_1.cs" />
