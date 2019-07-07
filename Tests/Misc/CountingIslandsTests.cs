@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Tests
 {
     [TestClass]
-    public class CountingIslandsTest
+    public class CountingIslandsTests
     {
         [TestMethod]
         public void CountIslands_WithNoIslands_ReturnsZero()

@@ -73,8 +73,9 @@
     <Compile Include="Chapter 5\Test5_1.cs" />
     <Compile Include="Chapter 5\Tests5_2.cs" />
     <Compile Include="ListHelpers.cs" />
+    <Compile Include="Misc\LeastRecentlyUsedCacheTests.cs" />
     <Compile Include="MatrixHelpers.cs" />
-    <Compile Include="Misc\CountingIslandsTest.cs" />
+    <Compile Include="Misc\CountingIslandsTests.cs" />
     <Compile Include="OverlappingParties\OverlappingPartiesTests.cs" />
     <Compile Include="Misc\SubstringSearchTests.cs" />
     <Compile Include="Misc\WordFrequenciesTests.cs" />

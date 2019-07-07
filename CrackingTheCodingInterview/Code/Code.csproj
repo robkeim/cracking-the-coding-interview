@@ -68,6 +68,7 @@
     <Compile Include="MeetingScheduler\Person.cs" />
     <Compile Include="Misc\BitHelpers.cs" />
     <Compile Include="Misc\CountingIslands.cs" />
+    <Compile Include="Misc\LeastRecentlyUsedCache.cs" />
     <Compile Include="OverlappingParties\OverlappingParties.cs" />
     <Compile Include="OverlappingParties\Party.cs" />
     <Compile Include="Misc\SubstringSearch.cs" />
