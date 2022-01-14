@@ -50,5 +50,39 @@ namespace Code
                 }
             }
         }
+
+        // Space: O(N)
+        // Time: O(N)
+        public static string ReplaceSpaces(char[] inputString)
+        {
+            if (inputString == null)
+            {
+                throw new ArgumentNullException(nameof(inputString), "Value cannot be null");
+            }
+
+            char[] outputString = new char[inputString.Length * 3];
+            int outputIndex = 0;
+            for (int i = 0; i < inputString.Length; i++)
+            {
+                if (char.IsWhiteSpace(inputString[i]))
+                {
+                    outputString[outputIndex++] = '%';
+                    outputString[outputIndex++] = '2';
+                    outputString[outputIndex++] = '0';
+                }
+                else
+                {
+                    outputString[outputIndex++] = inputString[i];
+                }
+            }
+
+            char[] finalString = new char[outputIndex];
+            for (int i = 0; i < outputIndex; i++)
+            {
+                finalString[i] = outputString[i];
+            }
+
+            return new string(finalString);
+        }
     }
 }
