@@ -32,6 +32,10 @@ namespace Code
             return head;
         }
 
+        // Loop detection using the Hare Tortoise approach (no additional memory).
+
+        // Space: O(1)
+        // Time: O(N)
         public static Node<T> FindLoopStartHareTortoise<T>(Node<T> head)
     where T : IEquatable<T>
         {
