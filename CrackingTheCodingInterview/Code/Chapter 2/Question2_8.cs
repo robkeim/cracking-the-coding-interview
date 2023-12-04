@@ -44,7 +44,7 @@ namespace Code
             Node<T> hare = head;
 
             // Detect cycle (tortoise and hare approach)
-            while (hare != null && hare.Next != null)
+            while (hare?.Next != null)
             {
                 tortoise = tortoise.Next;
                 hare = hare.Next.Next;
