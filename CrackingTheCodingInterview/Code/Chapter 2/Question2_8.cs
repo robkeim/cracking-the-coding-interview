@@ -56,7 +56,7 @@ namespace Code
             }
 
             // No cycle if hare reached the end
-            if (hare == null || hare.Next == null)
+            if (hare?.Next == null)
             {
                 return null;
             }
