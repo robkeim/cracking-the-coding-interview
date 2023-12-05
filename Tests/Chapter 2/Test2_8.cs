@@ -35,6 +35,7 @@ namespace Tests
         public void InvalidInputTest()
         {
             TestHelpers.AssertExceptionThrown(() => Question2_8.FindLoopStart<int>(null), typeof(ArgumentNullException));
+            TestHelpers.AssertExceptionThrown(() => Question2_8.FindLoopStartHareTortoise<int>(null), typeof(ArgumentNullException));
         }
 
         private static Node<T> AddLoop<T>(Node<T> head, params T[] loop)
@@ -67,6 +68,7 @@ namespace Tests
             where T : IEquatable<T>
         {
             Assert.AreEqual(loopStart, Question2_8.FindLoopStart(head));
+            Assert.AreEqual(loopStart, Question2_8.FindLoopStartHareTortoise(head));
         }
     }
 }

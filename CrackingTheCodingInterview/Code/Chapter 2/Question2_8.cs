@@ -22,7 +22,7 @@ namespace Code
                 throw new ArgumentNullException(nameof(head));
             }
 
-            var set = new HashSet<Node<T>>(new ReferenceComprer<Node<T>>());
+            var set = new HashSet<Node<T>>(new ReferenceComparer<Node<T>>());
 
             while (head != null && set.Add(head))
             {
@@ -32,7 +32,51 @@ namespace Code
             return head;
         }
 
-        private class ReferenceComprer<T> : IEqualityComparer<T>
+        // Loop detection using the Hare Tortoise approach (no additional memory).
+
+        // Space: O(1)
+        // Time: O(N)
+        public static Node<T> FindLoopStartHareTortoise<T>(Node<T> head)
+    where T : IEquatable<T>
+        {
+            if (head == null)
+            {
+                throw new ArgumentNullException(nameof(head));
+            }
+
+            Node<T> tortoise = head;
+            Node<T> hare = head;
+
+            // Detect cycle (tortoise and hare approach)
+            while (hare?.Next != null)
+            {
+                tortoise = tortoise.Next;
+                hare = hare.Next.Next;
+
+                if (ReferenceEquals(tortoise, hare))
+                {
+                    break; // Cycle detected
+                }
+            }
+
+            // No cycle if hare reached the end
+            if (hare?.Next == null)
+            {
+                return null;
+            }
+
+            // Move tortoise to the head and advance both pointers at the same speed
+            tortoise = head;
+            while (!ReferenceEquals(tortoise, hare))
+            {
+                tortoise = tortoise.Next;
+                hare = hare.Next;
+            }
+
+            return tortoise; // Starting node of the loop
+        }
+
+        private class ReferenceComparer<T> : IEqualityComparer<T>
         {
             public bool Equals(T x, T y)
             {
