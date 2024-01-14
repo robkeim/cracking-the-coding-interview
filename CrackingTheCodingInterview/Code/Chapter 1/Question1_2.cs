@@ -77,5 +77,30 @@ namespace Code
 
             return true;
         }
+
+        // Space: O(N)
+        // Time: O(N)
+        public static bool AreStringPermutationsIntValues(string string1, string string2)
+        {
+            if (string.IsNullOrEmpty(string1) || string.IsNullOrEmpty(string2))
+            {
+                throw new ArgumentException("Input strings cannot be null or empty");
+            }
+
+            if (string1.Length != string2.Length)
+            {
+                return false;
+            }
+
+            int summyString1 = 0;
+            int summyString2 = 0;
+            for (int i = 0; i < string1.Length; i++)
+            {
+                summyString1 = summyString1 + string1[i];
+                summyString2 = summyString2 + string2[i];
+            }
+
+            return summyString1 == summyString2;
+        }
     }
 }

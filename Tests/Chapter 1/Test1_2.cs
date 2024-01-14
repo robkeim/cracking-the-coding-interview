@@ -13,10 +13,12 @@ namespace Tests
             // Permutations
             ValidateResult("abc", "abc", true);
             ValidateResult("abc", "bca", true);
+            ValidateResult("abcdefg", "bcadefg", true);
 
             // Not permutations
             ValidateResult("abc", "abca", false);
             ValidateResult("abc", "xyz", false);
+            ValidateResult("abc", "axa", false);
         }
 
         [TestMethod]
@@ -59,12 +61,14 @@ namespace Tests
         {
             Assert.AreEqual(expectedResult, Question1_2.AreStringsPermutation(str1, str2));
             Assert.AreEqual(expectedResult, Question1_2.AreStringsPermutationNoSort(str1, str2));
+            Assert.AreEqual(expectedResult, Question1_2.AreStringPermutationsIntValues(str1, str2));
         }
 
         private static void ValidateResult(string str1, string str2, Type expectedException)
         {
             TestHelpers.AssertExceptionThrown(() => { Question1_2.AreStringsPermutation(str1, str2); }, expectedException);
             TestHelpers.AssertExceptionThrown(() => { Question1_2.AreStringsPermutationNoSort(str1, str2); }, expectedException);
+            TestHelpers.AssertExceptionThrown(() => { Question1_2.AreStringPermutationsIntValues(str1, str2); }, expectedException);
         }
     }
 }

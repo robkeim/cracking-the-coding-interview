@@ -40,6 +40,8 @@ namespace Tests
             // Null input string
             str = null;
             TestHelpers.AssertExceptionThrown(() => { Question1_3.ReplaceSpaces(str, 0); }, typeof(ArgumentNullException));
+
+            TestHelpers.AssertExceptionThrown(() => { Question1_3.ReplaceSpaces(str); }, typeof(ArgumentNullException));
         }
 
         private static void ValideResult(string input, string expectedResult, int? inputLength = null)
@@ -58,6 +60,8 @@ namespace Tests
             {
                 Assert.AreEqual(expectedResult[i], str[i]);
             }
+
+            Assert.AreEqual(Question1_3.ReplaceSpaces(str), expectedResult);
         }
     }
 }

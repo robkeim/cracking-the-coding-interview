@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Code
 {
@@ -48,6 +49,18 @@ namespace Code
             }
 
             return true;
+        }
+
+        // Space: O(n)
+        // Time: O(1)
+        public static bool AreAllCharactersUniqueLinQSolution(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+            {
+                return true;
+            }
+
+            return input.Distinct().ToArray().Length == input.Length;
         }
     }
 }
